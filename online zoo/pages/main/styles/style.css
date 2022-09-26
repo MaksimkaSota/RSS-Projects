@@ -128,6 +128,9 @@ a {
 .main-content {
   background: url("../../../assets/images/flower_foto1.png") no-repeat right 12px, url("../../../assets/images/palm_foto.png") no-repeat left bottom, url("../../../assets/images/strelitzia1.png") no-repeat right bottom;
 }
+.main-content .container {
+  padding-bottom: 100px;
+}
 .main-content .container .backstage {
   display: flex;
   color: #333B41;
@@ -226,7 +229,86 @@ a {
   line-height: 18px;
 }
 .main-content .container .round-button {
-  margin: 80px 0 100px 431px;
+  margin: 80px 0 0 431px;
+}
+
+.pick-and-field {
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  padding: 69px 0 100px;
+}
+.pick-and-field .container {
+  background: rgba(253, 253, 255, 0.52);
+  border-radius: 20px;
+  padding: 41px 0 59px;
+  color: rgb(51, 59, 65);
+}
+.pick-and-field .container .title {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 58px;
+  text-align: center;
+  color: rgb(254, 144, 19);
+  margin-bottom: 30px;
+}
+.pick-and-field .container .paragraph-one {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  margin-left: 99px;
+  margin-bottom: 40px;
+}
+.pick-and-field .container .paragraph-two {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  margin-left: 99px;
+  margin-bottom: 10px;
+}
+.pick-and-field .container .paragraph-three {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-left: 99px;
+}
+.pick-and-field .container .paragraph-three a {
+  color: rgb(51, 59, 65);
+  border-bottom: 1px solid rgb(254, 144, 19);
+}
+.pick-and-field .container .subtitle {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 47px;
+  text-align: center;
+  margin: 60px 0 40px;
+}
+.pick-and-field .container .how-it-works-container {
+  padding: 0 198px;
+  display: flex;
+  justify-content: space-between;
+}
+.pick-and-field .container .how-it-works-container .card {
+  width: 168px;
+}
+.pick-and-field .container .how-it-works-container .card .image-container {
+  width: 100%;
+  height: 168px;
+  border: 1px solid #FE9013;
+  border-radius: 5px;
+}
+.pick-and-field .container .how-it-works-container .card .image-container-one {
+  background: rgb(255, 255, 255) url("../../../assets/images/Rectangle1.png") no-repeat center;
+}
+.pick-and-field .container .how-it-works-container .card .image-container-two {
+  background: rgb(255, 255, 255) url("../../../assets/images/Rectangle2.png") no-repeat center;
+}
+.pick-and-field .container .how-it-works-container .card .image-container-three {
+  background: rgb(255, 255, 255) url("../../../assets/images/Rectangle3.png") no-repeat center;
+}
+.pick-and-field .container .how-it-works-container .card .card-text {
+  margin-top: 30px;
+}
+.pick-and-field .container .round-button {
+  margin: 60px 0 0 431px;
 }
 
 /*# sourceMappingURL=style.css.map */
