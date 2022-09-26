@@ -31,6 +31,29 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
+.round-button {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-transform: uppercase;
+  width: 298px;
+  padding: 16px 0;
+  margin-left:  763px;
+  text-align: center;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 25px;
+  &:hover {
+    background: #E47209;
+    cursor: pointer;
+  }
+  &:active {
+    background: #4B9200;
+  }
+}
+
 .header {
   background-color: #000000;
   .container {
@@ -70,6 +93,37 @@ a {
           }
         }
       }
+    }
+  }
+}
+
+.watch-your-favorite {
+  background: url("../../../assets/images/GiantPanda.jpg") no-repeat 50% 100%/ cover;
+  padding-bottom: 100px;
+  .container {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 587px;
+      width: 465px;
+      height: 465px;
+      border-radius: 50%;
+      background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    }
+    .text {
+      font-size: 106px;
+      font-weight: 700;
+      line-height: 80px;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 0 0 0 660px;
+      padding: 86px 0 60px;
+      position: relative;
+      span {
+        color: #FFEE2E;
+      };
     }
   }
 }
