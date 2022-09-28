@@ -30,6 +30,7 @@ a {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  cursor: default;
 }
 
 .round-button {
@@ -64,6 +65,7 @@ a {
   border-radius: 2px;
   margin: 14px 63px 14px 1px;
   padding: 2.55px 3.75px;
+  background: url("../../../assets/images/bamboo.svg") no-repeat center;
 }
 
 .navigation {
@@ -71,7 +73,7 @@ a {
     display: flex;
     height: 100%;
     align-items: center;
-    li {
+    .item {
       &:not(:first-child) {
         margin-left: 58px;
       }
@@ -84,7 +86,6 @@ a {
         line-height: 22px;
       }
       &:hover {
-        cursor: pointer;
         background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -191,9 +192,14 @@ a {
             font-size: 16px;
             font-weight: 400;
             line-height: 22px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #D31414;
+            color: #D31414;
+          }
+          .button-submit:hover {
             color: rgba(75, 146, 0, 1);
             border: 1px solid rgba(75, 146, 0, 1);
-            border-radius: 5px;
             cursor: pointer;
           }
         }
@@ -211,6 +217,14 @@ a {
         li {
           display: flex;
           align-items: center;
+          cursor: pointer;
+          &:hover .icon-facebook::before,
+          &:hover .icon-twitter::before,
+          &:hover .icon-instagram::before,
+          &:hover .icon-youtube::before,
+          &:hover a  {
+            color: #FE9013;
+          }
           &:not(:last-child) {
             margin-bottom: 10px;
           }
@@ -219,18 +233,10 @@ a {
             height: 26px;
             border-radius: 50%;
             margin-right: 12px;
-          }
-          .logo-f-container {
-            background: rgba(196, 196, 196, 0.5) url("../../../assets/images/f.png") no-repeat center;
-          }
-          .logo-t-container {
-            background: rgba(196, 196, 196, 0.5) url("../../../assets/images/t.png") no-repeat center;
-          }
-          .logo-i-container {
-            background: rgba(196, 196, 196, 0.5) url("../../../assets/images/i.png") no-repeat center;
-          }
-          .logo-y-container {
-            background: rgba(196, 196, 196, 0.5) url("../../../assets/images/y.png") no-repeat center;
+            background: rgba(196, 196, 196, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         }
       }

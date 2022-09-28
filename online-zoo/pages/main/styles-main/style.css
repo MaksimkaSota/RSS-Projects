@@ -30,6 +30,7 @@ a {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  cursor: default;
 }
 
 .round-button {
@@ -64,6 +65,7 @@ a {
   border-radius: 2px;
   margin: 14px 63px 14px 1px;
   padding: 2.55px 3.75px;
+  background: url("../../../assets/images/bamboo.svg") no-repeat center;
 }
 
 .navigation ul {
@@ -71,19 +73,18 @@ a {
   height: 100%;
   align-items: center;
 }
-.navigation ul li:not(:first-child) {
+.navigation ul .item:not(:first-child) {
   margin-left: 58px;
 }
-.navigation ul li:last-child {
+.navigation ul .item:last-child {
   margin-left: 438px;
 }
-.navigation ul li .link {
+.navigation ul .item .link {
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
 }
-.navigation ul li:hover {
-  cursor: pointer;
+.navigation ul .item:hover {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -206,6 +207,7 @@ a {
   margin-bottom: 20px;
   border: 1px solid #FE9013;
   border-radius: 5px;
+  overflow: hidden;
 }
 .main-content .container .pets .card:nth-child(5) {
   margin-right: 0;
@@ -214,8 +216,15 @@ a {
   margin-right: 0;
 }
 .main-content .container .pets .card:hover .animal-photo {
-  transform: scale(1.03);
+  transform: scale(1.1);
   transition: all 0.5s;
+}
+.main-content .container .pets .card:hover .text-container {
+  transform: translateY(-60%);
+  transition: all 0.5s;
+  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0;
 }
 .main-content .container .pets .card .animal-photo {
   width: 100%;
@@ -391,17 +400,27 @@ a {
   color: rgb(118, 116, 116);
 }
 .testimonials .container .scroll {
+  -webkit-appearance: none;
   width: 599px;
   height: 8px;
+  display: block;
   margin: 0 auto;
-  border: 1px solid rgba(243, 169, 248, 0.66);
   border-radius: 5px;
+  border: 1px solid rgba(243, 169, 248, 0.66);
 }
-.testimonials .container .scroll .slider {
+.testimonials .container .scroll::-webkit-slider-thumb {
+  appearance: none;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   width: 115px;
   height: 6px;
-  background: #FE9013;
   border-radius: 5px;
+  cursor: pointer;
+}
+.testimonials .container .scroll::-webkit-slider-thumb:hover {
+  background: #E47209;
+}
+.testimonials .container .scroll::-webkit-slider-thumb:active {
+  background: #4B9200;
 }
 .testimonials .container .round-button {
   border-radius: 5px;
@@ -446,9 +465,14 @@ a {
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #D31414;
+  color: #D31414;
+}
+.footer .container .footer-head .subscribe-container form .button-submit:hover {
   color: rgb(75, 146, 0);
   border: 1px solid rgb(75, 146, 0);
-  border-radius: 5px;
   cursor: pointer;
 }
 .footer .container .round-button {
@@ -465,6 +489,10 @@ a {
 .footer .container .footer-foot .social li {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+.footer .container .footer-foot .social li:hover .icon-facebook::before, .footer .container .footer-foot .social li:hover .icon-twitter::before, .footer .container .footer-foot .social li:hover .icon-instagram::before, .footer .container .footer-foot .social li:hover .icon-youtube::before, .footer .container .footer-foot .social li:hover a {
+  color: #FE9013;
 }
 .footer .container .footer-foot .social li:not(:last-child) {
   margin-bottom: 10px;
@@ -474,18 +502,10 @@ a {
   height: 26px;
   border-radius: 50%;
   margin-right: 12px;
-}
-.footer .container .footer-foot .social li .logo-f-container {
-  background: rgba(196, 196, 196, 0.5) url("../../../assets/images/f.png") no-repeat center;
-}
-.footer .container .footer-foot .social li .logo-t-container {
-  background: rgba(196, 196, 196, 0.5) url("../../../assets/images/t.png") no-repeat center;
-}
-.footer .container .footer-foot .social li .logo-i-container {
-  background: rgba(196, 196, 196, 0.5) url("../../../assets/images/i.png") no-repeat center;
-}
-.footer .container .footer-foot .social li .logo-y-container {
-  background: rgba(196, 196, 196, 0.5) url("../../../assets/images/y.png") no-repeat center;
+  background: rgba(196, 196, 196, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer .container .footer-foot .navigation {
   margin-right: 171px;
