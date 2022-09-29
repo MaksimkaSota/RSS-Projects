@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donate</title>
+  <link rel="icon" sizes="32x32" href="../../assets/images/panda_icon.png"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
   <link rel="stylesheet" href="../../assets/styles/normalize.css">
   <link rel="stylesheet" href="../../assets/styles/icons.css">
@@ -27,7 +29,7 @@
             <a class="link">Donate</a>
           </li>
           <li class="item">
-            <a class="link" href="#">Contact us</a>
+            <a class="link" href="#contacts">Contact us</a>
           </li>
           <li class="item">
             <a class="link" target="_blank" href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks">Designed by ©</a>
@@ -45,6 +47,50 @@
       <div class="donate-container">
         <h2 class="title-donate-container">Pick and feed a friend</h2>
         <p class="text">We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
+        <div class="diet">
+          <div class="item">
+            <p class="diet-title">4</p>
+            <p class="diet-subtitle">Panda diet for the day.</p>
+          </div>
+          <div class="item">
+            <img src="../../assets/images/x_icon.svg" alt="x-icon" class="diet-x">
+          </div>
+          <div class="item">
+            <img src="../../assets/images/diet-panda.png" alt="panda" class="diet-img">
+          </div>
+        </div>
+        <div class="money-donate-block">
+          <p class="money-donate-block-title">Amount</p>
+          <div class="amount-space">
+            <input class="amount-circle" type="radio" name="circle" value="5000" id="5000">
+            <input class="amount-circle" type="radio" name="circle" value="2000" id="2000">
+            <input class="amount-circle" checked type="radio" name="circle" value="1000" id="1000">
+            <input class="amount-circle" type="radio" name="circle" value="500" id="500">
+            <input class="amount-circle" type="radio" name="circle" value="250" id="250">
+            <input class="amount-circle" type="radio" name="circle" value="100" id="100">
+            <input class="amount-circle" type="radio" name="circle" value="50" id="50">
+            <input class="amount-circle" type="radio" name="circle" value="25" id="25">
+          </div>
+          <div class="money">
+            <label for="5000"><span>$</span>5000</label>
+            <label for="2000"><span>$</span>2000</label>
+            <label class="checked" for="1000"><span>$</span>1000</label>
+            <label for="500"><span>$</span>500</label>
+            <label for="250"><span>$</span>250</label>
+            <label for="100"><span>$</span>100</label>
+            <label for="50"><span>$</span>50</label>
+            <label for="25"><span>$</span>25</label>
+          </div>
+        </div>
+        <input class="input-number" name="email" placeholder="Another amount" type="number">
+        <form class="radio-buttons">
+          <input type="radio" class="amount-radio" id="monthly" name="amount" value="Monthly">
+          <label for="monthly">Monthly</label>
+          <input type="radio" class="amount-radio" id="once" name="amount" value="Once" checked>
+          <label for="once">Once</label>
+        </form>
+        <a class="round-button" href="#">Feed a friend now</a>
+        <p class="share-text">Share with your friends on social networks</p>
       </div>
     </div>
   </div>
@@ -62,7 +108,7 @@
       </div>
       <a class="round-button" href="index.html">donate for volunteers</a>
       <div class="footer-foot">
-        <ul class="social">
+        <ul class="social" id="contacts">
           <li>
             <div class="logo-container icon-facebook"></div>
             <a class="text" target="_blank" href="https://www.facebook.com">Facebook</a>
@@ -92,7 +138,7 @@
               <a class="link" href="#">Zoos</a>
             </li>
             <li class="item">
-              <a class="link" href="#">Contact us</a>
+              <a class="link" href="#contacts">Contact us</a>
             </li>
           </ul>
         </nav>
