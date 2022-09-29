@@ -459,6 +459,7 @@ a {
   line-height: 22px;
   border: 1px solid #FE9013;
   border-radius: 2px;
+  outline: none;
 }
 .footer .container .footer-head .subscribe-container form .button-submit {
   width: 129px;
