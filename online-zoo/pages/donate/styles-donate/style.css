@@ -207,6 +207,9 @@ a {
 .pick-and-feed .container .donate-container .diet .item .diet-x {
   margin: 130px 64px 0 50px;
 }
+.pick-and-feed .container .donate-container .diet .item .diet-img-last {
+  display: none;
+}
 .pick-and-feed .container .donate-container .input-number {
   display: block;
   margin: 4.31% auto 2.56%;
@@ -223,6 +226,7 @@ a {
 }
 .pick-and-feed .container .donate-container .radio-buttons {
   display: flex;
+  align-items: center;
   margin-bottom: 3.18%;
   margin-left: 40.64%;
 }
@@ -639,6 +643,8 @@ a {
     margin: 130px 64px 0 11px;
   }
   .pick-and-feed .container .donate-container .input-number {
+    width: 180px;
+    background: url("../../../assets/images/Vector.svg") no-repeat 160px 16px;
     margin: 8.33% auto 5.17%;
   }
   .pick-and-feed .container .donate-container .radio-buttons {
@@ -749,9 +755,120 @@ a {
     margin-left: 12.33%;
   }
 }
-@media (max-width: 584px) {
+@media (max-width: 600px) {
   html, body {
-    font-size: 12px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 540px) {
+  html, body {
+    font-size: 16px;
+  }
+  .background-panda {
+    height: 187px;
+    background: url("../../../assets/images/panda_bg4.png") no-repeat -148.71px top;
+  }
+  .pick-and-feed {
+    padding: 30px 0 21px;
+  }
+  .pick-and-feed .container .title {
+    margin-bottom: 6.66%;
+  }
+  .pick-and-feed .container .subtitle {
+    font-size: 1.5rem;
+    margin: 10% 0;
+  }
+  .pick-and-feed .container .donate-container {
+    padding: 6.67% 0 6.67%;
+  }
+  .pick-and-feed .container .donate-container .title-donate-container {
+    font-size: 1.5rem;
+    margin-bottom: 3.33%;
+  }
+  .pick-and-feed .container .donate-container .text {
+    font-size: 1rem;
+  }
+  .pick-and-feed .container .donate-container .diet {
+    max-width: 300px;
+    margin-top: 3.43%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pick-and-feed .container .donate-container .diet .item .diet-title {
+    margin-top: 59.21px;
+    font-size: 2.54rem;
+  }
+  .pick-and-feed .container .donate-container .diet .item .diet-subtitle {
+    margin-top: 6.2px;
+    font-size: 0.56rem;
+  }
+  .pick-and-feed .container .donate-container .diet .item .diet-x {
+    margin: 73.31px 36.09px 0 6.2px;
+    width: 7.89px;
+  }
+  .pick-and-feed .container .donate-container .diet .item .diet-img {
+    display: none;
+  }
+  .pick-and-feed .container .donate-container .diet .item .diet-img-last {
+    display: block;
+  }
+  .pick-and-feed .container .donate-container .input-number {
+    margin: 8.33% auto 8.33%;
+  }
+  .pick-and-feed .container .donate-container .radio-buttons {
+    margin-bottom: 9.33%;
+    margin-left: 13.67%;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block {
+    margin-top: 6.83%;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money-donate-block-title {
+    margin: 0 0 2.83% 0;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .amount-space {
+    width: 100%;
+    height: 13.5px;
+    padding: 0 17.5px 0 17.5px;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .amount-space::before {
+    width: 91.33%;
+    height: 1px;
+    left: 17.5px;
+    top: 6.75px;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .amount-space .amount-circle {
+    width: 5px;
+    height: 5px;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .amount-space .amount-circle:checked::before, .pick-and-feed .container .donate-container .money-donate-block .amount-space .amount-circle:hover::before {
+    width: 11.48px;
+    height: 11.48px;
+    left: -4.74px;
+    top: -4.74px;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .amount-space .amount-circle:checked::after, .pick-and-feed .container .donate-container .money-donate-block .amount-space .amount-circle:hover::after {
+    width: 20px;
+    height: 20px;
+    left: -8.5px;
+    bottom: -8.5px;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money {
+    justify-content: space-between;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label {
+    font-size: 1.2rem;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label span {
+    font-size: 1.2rem;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label:nth-child(4), .pick-and-feed .container .donate-container .money-donate-block .money label:nth-child(5), .pick-and-feed .container .donate-container .money-donate-block .money label:nth-child(6) {
+    margin-right: 12.81%;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label:nth-child(7) {
+    margin-right: 15.44%;
+  }
+  .pick-and-feed .container .donate-container .share-text {
+    margin: 10% auto 0;
   }
 }
 @media (max-width: 480px) {
@@ -765,10 +882,31 @@ a {
   .burger:after {
     width: 18px;
   }
+  .pick-and-feed .container .donate-container .money-donate-block .amount-space::before {
+    width: 90.77%;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label {
+    font-size: 1rem;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label span {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 360px) {
   .burger {
     margin-top: 3.33%;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block {
+    margin-top: 6.83%;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .amount-space::before {
+    width: 88.33%;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label {
+    font-size: 0.9rem;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label span {
+    font-size: 0.9rem;
   }
   .footer .container .footer-head .logo {
     display: none;
@@ -821,9 +959,6 @@ a {
   }
 }
 @media (max-width: 320px) {
-  html, body {
-    font-size: 16px;
-  }
   .container {
     max-width: 300px;
     margin: 0 auto;
@@ -833,6 +968,15 @@ a {
   }
   .logo {
     margin: 0.38% auto 0.45% 0;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money {
+    justify-content: flex-start;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label {
+    font-size: 0.81rem;
+  }
+  .pick-and-feed .container .donate-container .money-donate-block .money label span {
+    font-size: 0.81rem;
   }
 }
 
