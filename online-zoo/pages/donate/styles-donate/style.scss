@@ -781,6 +781,10 @@ a {
     border: none;
     background: url("../../../assets/images/bamboo2.svg") no-repeat center;
   }
+  .header {
+    position: fixed;
+    width: 100%;
+  }
   .pick-and-feed {
     .container {
       .donate-container {

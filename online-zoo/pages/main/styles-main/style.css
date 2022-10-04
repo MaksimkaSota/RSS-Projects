@@ -831,6 +831,10 @@ a {
     border: none;
     background: url("../../../assets/images/bamboo2.svg") no-repeat center;
   }
+  .header {
+    position: fixed;
+    width: 100%;
+  }
   .watch-your-favorite {
     background: url("../../../assets/images/GiantPanda3.jpg") no-repeat 50% bottom;
     padding-bottom: 86.57px;
