@@ -1298,7 +1298,7 @@ a {
     margin: 0.38% auto 0.45% 0;
   }
   .watch-your-favorite {
-    background: url("../../../assets/images/GiantPanda4.jpg") no-repeat 50% top;
+    background: url("../../../assets/images/GiantPanda4.jpg") no-repeat 50% bottom;
     padding-top: 32px;
   }
   .watch-your-favorite .container .text {
