@@ -173,8 +173,8 @@ a {
   font-size: 3rem;
   font-weight: 400;
   line-height: 120%;
-  text-align: center;
   margin-bottom: 2.05%;
+  margin-left: 25.61%;
 }
 .pick-and-feed .container .donate-container .text {
   font-size: 1.5rem;
@@ -484,9 +484,10 @@ a {
     margin: 4.26% 0;
   }
   .pick-and-feed .container .donate-container {
-    padding: 1.06% 4.63% 4.89%;
+    padding: 2.13% 4.63% 4.89%;
   }
   .pick-and-feed .container .donate-container .title-donate-container {
+    margin-left: 22.16%;
     margin-bottom: 1.17%;
   }
   .pick-and-feed .container .donate-container .diet {
@@ -570,6 +571,7 @@ a {
   }
   .footer .container .footer-head .subscribe-container {
     width: 38.89%;
+    margin-right: 3.4%;
   }
   .footer .container .footer-head .subscribe-container .subtitle {
     margin: 10.93% 0 3.83%;
@@ -612,8 +614,8 @@ a {
     font-size: 16px;
   }
   .background-panda {
-    height: 335px;
-    background: url("../../../assets/images/panda_bg3.png") no-repeat -272px top;
+    height: 367px;
+    background: url("../../../assets/images/panda_bg3.png") no-repeat -272px bottom;
   }
   .pick-and-feed {
     padding: 30px 0 46px;
@@ -630,6 +632,8 @@ a {
     padding: 3.17% 0 5.16%;
   }
   .pick-and-feed .container .donate-container .title-donate-container {
+    margin-left: 0;
+    text-align: center;
     margin-bottom: 3.33%;
   }
   .pick-and-feed .container .donate-container .text {
@@ -769,8 +773,8 @@ a {
     font-size: 16px;
   }
   .background-panda {
-    height: 187px;
-    background: url("../../../assets/images/panda_bg4.png") no-repeat -148.71px top;
+    height: 219px;
+    background: url("../../../assets/images/panda_bg4.png") no-repeat -148.71px bottom;
   }
   .pick-and-feed {
     padding: 30px 0 21px;

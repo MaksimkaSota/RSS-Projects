@@ -176,8 +176,8 @@ a {
         font-size: 3rem;
         font-weight: 400;
         line-height: 120%;
-        text-align: center;
         margin-bottom: 2.05%;
+        margin-left: 25.61%;
       }
       .text {
         font-size: 1.5rem;
@@ -504,8 +504,9 @@ a {
         margin: 4.26% 0;
       }
       .donate-container {
-        padding: 1.06% 4.63% 4.89%;
+        padding: 2.13% 4.63% 4.89%;
         .title-donate-container {
+          margin-left: 22.16%;
           margin-bottom: 1.17%;
         }
         .diet {
@@ -605,6 +606,7 @@ a {
         }
         .subscribe-container {
           width: 38.89%;
+          margin-right: 3.40%;
           .subtitle {
             margin: 10.93% 0 3.83%;
           }
@@ -658,8 +660,8 @@ a {
     font-size: 16px;
   }
   .background-panda {
-    height: 335px;
-    background: url("../../../assets/images/panda_bg3.png") no-repeat -272px top;
+    height: 367px;
+    background: url("../../../assets/images/panda_bg3.png") no-repeat -272px bottom;
   }
   .pick-and-feed {
     padding: 30px 0 46px;
@@ -675,6 +677,8 @@ a {
       .donate-container {
         padding: 3.17% 0 5.16%;
         .title-donate-container {
+          margin-left: 0;
+          text-align: center;
           margin-bottom: 3.33%;
         }
         .text {
@@ -860,8 +864,8 @@ a {
     font-size: 16px;
   }
   .background-panda {
-    height: 187px;
-    background: url("../../../assets/images/panda_bg4.png") no-repeat -148.71px top;
+    height: 219px;
+    background: url("../../../assets/images/panda_bg4.png") no-repeat -148.71px bottom;
   }
   .pick-and-feed {
     padding: 30px 0 21px;
