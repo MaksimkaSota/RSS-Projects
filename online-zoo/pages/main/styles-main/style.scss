@@ -857,7 +857,7 @@ a {
   .watch-your-favorite {
     padding-bottom: 40px;
     .round-button {
-      margin-left: 50.85%;
+      margin-left: 0;
     }
   }
   .main-content {
@@ -929,6 +929,7 @@ a {
   .watch-your-favorite {
     background: url("../../../assets/images/GiantPanda3.jpg") no-repeat 50% bottom;
     padding-bottom: 86.57px;
+    padding-top: 5.3%;
     .container {
       img {
         width: 39.60%;
@@ -1462,7 +1463,8 @@ a {
     margin: 0.38% auto 0.45% 0;
   }
   .watch-your-favorite {
-    background: url("../../../assets/images/GiantPanda4.jpg") no-repeat 50% 50%;
+    background: url("../../../assets/images/GiantPanda4.jpg") no-repeat 50% top;
+    padding-top: 32px;
     .container {
       .text {
         font-size: 1.75rem;
