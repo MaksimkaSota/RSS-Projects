@@ -157,3 +157,77 @@
   </footer>
 </body>
 </html>
+function brightest(colors){
+let arrayRGB = [];
+let arrayHEX = [];
+let arrayV = [];
+for (let color of colors) {
+let colorHEX = color.slice(1);
+let redHEX = colorHEX.slice(0, 2);
+let greenHEX = colorHEX.slice(2, 4);
+let blueHEX = colorHEX.slice(4);
+let array = [redHEX, greenHEX, blueHEX];
+arrayHEX.push(array);
+}
+for (let color of arrayHEX) {
+let array = [];
+for (number of color) {
+let a = number[0];
+let b = number[1];
+if (number[0] == 'A') {
+a = 10;
+}
+if (number[0] == 'B') {
+a = 11;
+}
+if (number[0] == 'C') {
+a = 12;
+}
+if (number[0] == 'D') {
+a = 13;
+}
+if (number[0] == 'E') {
+a = 14;
+}
+if (number[0] == 'F') {
+a = 15;
+}
+if (number[1] == 'A') {
+b = 10;
+}
+if (number[1] == 'B') {
+b = 11;
+}
+if (number[1] == 'C') {
+b = 12;
+}
+if (number[1] == 'D') {
+b = 13;
+}
+if (number[1] == 'E') {
+b = 14;
+}
+if (number[1] == 'F') {
+b = 15;
+}
+let answer = a * Math.pow(16, 1) + b * Math.pow(16, 0);
+array.push(answer);
+}
+arrayRGB.push(array);
+}
+for (let colorRGB of arrayRGB) {
+let answer = Math.max(...colorRGB);
+arrayV.push(answer);
+}
+let indexMax = arrayV.indexOf(Math.max(...arrayV));
+console.log(indexMax);
+for (let i = 0; i < colors.length; i++) {
+if (i === indexMax) {
+return colors[i];
+}
+}
+}
+
+brightest(["#001000", "#000000"]) == "#001000"
+brightest(["#ABCDEF", "#123456"]) == "#ABCDEF"
+brightest(["#00FF00", "#FFFF00", "#01130F"]) == "#00FF00"
