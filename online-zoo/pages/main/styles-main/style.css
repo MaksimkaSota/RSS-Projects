@@ -847,7 +847,7 @@ a {
   }
   .watch-your-favorite .container img {
     width: 39.6%;
-    top: 1.71%;
+    top: 10.23px;
     left: 51.8%;
   }
   .watch-your-favorite .container .text {
@@ -1299,7 +1299,7 @@ a {
   }
   .watch-your-favorite {
     background: url("../../../assets/images/GiantPanda4.jpg") no-repeat 50% bottom;
-    padding-top: 32px;
+    padding-top: 31px;
   }
   .watch-your-favorite .container .text {
     font-size: 1.75rem;
