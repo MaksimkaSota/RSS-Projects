@@ -782,7 +782,7 @@ a {
     padding-bottom: 40px;
   }
   .watch-your-favorite .round-button {
-    margin-left: 50.85%;
+    margin-left: 0;
   }
   .main-content {
     background: url("../../../assets/images/palm_foto3.png") no-repeat left bottom, url("../../../assets/images/strelitzia3.png") no-repeat right bottom;
@@ -843,6 +843,7 @@ a {
   .watch-your-favorite {
     background: url("../../../assets/images/GiantPanda3.jpg") no-repeat 50% bottom;
     padding-bottom: 86.57px;
+    padding-top: 5.3%;
   }
   .watch-your-favorite .container img {
     width: 39.6%;
@@ -1297,7 +1298,8 @@ a {
     margin: 0.38% auto 0.45% 0;
   }
   .watch-your-favorite {
-    background: url("../../../assets/images/GiantPanda4.jpg") no-repeat 50% 50%;
+    background: url("../../../assets/images/GiantPanda4.jpg") no-repeat 50% top;
+    padding-top: 32px;
   }
   .watch-your-favorite .container .text {
     font-size: 1.75rem;
