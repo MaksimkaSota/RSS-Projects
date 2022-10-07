@@ -710,7 +710,7 @@ a {
     margin: 7.45% 0 0 34.15%;
   }
   .testimonials {
-    background: url("../../../assets/images/leav_foto2.png") no-repeat right 636px;
+    background: url("../../../assets/images/leav_foto2.png") no-repeat right 604px;
   }
   .testimonials .container .card-container {
     margin: 3.19% 0 2.13%;
@@ -740,12 +740,15 @@ a {
   .testimonials .container .round-button {
     margin-top: 5.53%;
   }
+  .footer .container {
+    padding-left: 1.38%;
+  }
   .footer .container .footer-head .logo {
     margin: 4.36% 0 7.23%;
   }
   .footer .container .footer-head .subscribe-container {
     width: 38.89%;
-    margin-right: 2.13%;
+    margin-right: 2.53%;
   }
   .footer .container .footer-head .subscribe-container .subtitle {
     margin: 10.93% 0 3.83%;
@@ -761,7 +764,7 @@ a {
     padding: 4.57% 0 5.31%;
   }
   .footer .container .footer-foot .social {
-    margin-right: 18.38%;
+    margin-right: 19.38%;
   }
   .footer .container .footer-foot .navigation {
     width: 35.6%;
@@ -808,6 +811,9 @@ a {
   }
   .footer {
     position: relative;
+  }
+  .footer .container {
+    padding-left: 0;
   }
   .footer .container .footer-head .subscribe-container {
     display: none;
@@ -1220,7 +1226,7 @@ a {
     right: 0;
   }
   .testimonials {
-    background: url("../../../assets/images/leav_foto4.png") no-repeat right 536px;
+    background: url("../../../assets/images/leav_foto4.png") no-repeat right 516px;
     padding: 30px 0 60px;
   }
   .testimonials .container .title {
