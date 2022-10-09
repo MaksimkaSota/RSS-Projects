@@ -1,95 +1,113 @@
-// // const left = document.querySelector('#left');
-// // const right = document.querySelector('#right');
-// // const slider = document.querySelector('#card-slider');
-// // const cardContainers = document.querySelectorAll('.card-container-slider');
-// //
-// // let counter = 0;
-// // const stepSize = cardContainers[0].clientWidth;
-// // let div = document.createElement("div");
-// // div.classList.add('card-container-slider');
-// // div.innerHTML = `
-// //      <div class="card">
-// //       <img class="animal-photo" src="../../assets/images/giant-pandas.jpg" alt="">
-// //       <div class="text-container">
-// //         <div>
-// //           <p class="name">Giant Pandas</p>
-// //           <p class="location">Native to Southwest China</p>
-// //         </div>
-// //         <img class="banana" src="../../assets/images/banana-bamboo_icon.svg" alt="">
-// //       </div>
-// //     </div>
-// //     <div class="card">
-// //       <img class="animal-photo" src="../../assets/images/eagles.jpg" alt="">
-// //       <div class="text-container">
-// //         <div>
-// //           <p class="name">Eagles</p>
-// //           <p class="location">Native to South America</p>
-// //         </div>
-// //         <img class="meet" src="../../assets/images/meet-fish_icon.svg" alt="">
-// //       </div>
-// //     </div>
-// //     <div class="card">
-// //       <img class="animal-photo" src="../../assets/images/gorillas.jpg" alt="">
-// //       <div class="text-container">
-// //         <div>
-// //           <p class="name">Gorillas</p>
-// //           <p class="location">Native to Congo</p>
-// //         </div>
-// //         <img class="banana" src="../../assets/images/banana-bamboo_icon.svg" alt="">
-// //       </div>
-// //     </div>
-// //     <div class="card">
-// //       <img class="animal-photo" src="../../assets/images/two-toed-sloth.jpg" alt="">
-// //       <div class="text-container">
-// //         <div>
-// //           <p class="name">Two-toed Sloth</p>
-// //           <p class="location">Mesoamerica, South America</p>
-// //         </div>
-// //         <img class="banana" src="../../assets/images/banana-bamboo_icon.svg" alt="">
-// //       </div>
-// //     </div>
-// //     <div class="card">
-// //       <img class="animal-photo" src="../../assets/images/cheetahs.jpg" alt="">
-// //       <div class="text-container">
-// //         <div>
-// //           <p class="name">cheetahs</p>
-// //           <p class="location">Native to Africa</p>
-// //         </div>
-// //         <img class="meet" src="../../assets/images/meet-fish_icon.svg" alt="">
-// //       </div>
-// //     </div>
-// //     <div class="card">
-// //       <img class="animal-photo" src="../../assets/images/penguins.jpg" alt="">
-// //       <div class="text-container">
-// //         <div>
-// //           <p class="name">Penguins</p>
-// //           <p class="location">Native to Antarctica</p>
-// //         </div>
-// //         <img class="meet" src="../../assets/images/meet-fish_icon.svg" alt="">
-// //       </div>
-// //     </div>
-// //   `
-// // right.addEventListener('click', function(evt) {
-// //   counter >= cardContainers.length ? counter = -1 : null;
-// //   counter++;
-// //   evt.preventDefault()
-// //   slider.classList.add('sliderAnimation');
-// //   slider.style.transform = `translateX(-${stepSize * counter}px)`
-// //
-// //   slider.append(div);
-// // })
-// //
-// // left.addEventListener('click', function(evt) {
-// //   slider.prepend(div);
-// //   counter <= 0 ? counter = 2 : null;
-// //   counter--;
-// //   evt.preventDefault()
-// //   slider.classList.add('sliderAnimation');
-// //   slider.style.transform = `translateX(-${stepSize * counter}px)`
-// // })
-//
-// const left = document.querySelector('#left');
-// const right = document.querySelector('#right');
+const buttonLeft = document.querySelector('#button-left');
+const buttonRight = document.querySelector('#button-right');
+
+const cardContainers = document.querySelectorAll('.card-container-slider');
+const cards = cardContainers[0].querySelectorAll('.card');
+
+const width = cardContainers[0].clientWidth;
+console.log(width);
+
+let cardsArray = [];
+for (let i = 0; i < cards.length; i++) {
+  cardsArray[i] = cards[i];
+}
+
+let constCardsArray = [];
+for (let i = 0; i < cards.length; i++) {
+  constCardsArray[i] = cards[i];
+}
+
+let cardContainersArray = [];
+for (let i = 0; i < cardContainers.length; i++) {
+  cardContainersArray[i] = cardContainers[i];
+  cardContainers[i].remove();
+}
+
+let flag = false;
+let flag2 = false;
+let step = 0;
+let offset = -1;
+
+let fullCardContainers = [];
+function draw() {
+  cardsArray.sort(() => Math.random() - 0.5);
+
+  const cardContainers = document.createElement('div');
+  cardContainers.classList.add('card-container-slider');
+  if (step === 1 && flag2 === false) {
+    for (let i = 0; i < constCardsArray.length; i++) {
+      cardContainers.append(constCardsArray[i]);
+    }
+  } else {
+    for (let i = 0; i < cardsArray.length; i++) {
+      cardContainers.append(cardsArray[i]);
+    }
+  }
+
+  fullCardContainers.push(cardContainers);
+
+  fullCardContainers[step].style.left = offset * width + 'px';
+  if (flag === false) {
+    document.querySelector('#card-slider').append(fullCardContainers[step].cloneNode(true));
+  } else {
+    document.querySelector('#card-slider').prepend(fullCardContainers[step].cloneNode(true));
+  }
+  if (step + 1 === cardContainersArray.length) {
+    step = 0;
+  } else {
+    step++;
+    offset++;
+  }
+  if (fullCardContainers.length >= 3) {
+    fullCardContainers = [];
+  }
+}
+
+function scrollLeft() {
+  flag2 = true;
+  flag = false;
+  offset = 1;
+  buttonLeft.onclick = null;
+  let cardContainersArray2 = document.querySelectorAll('.card-container-slider');
+  console.log(cardContainersArray2);
+  let offset2 = 0;
+  for (let i = 0; i < cardContainersArray2.length - 1; i++) {
+    cardContainersArray2[i + 1].style.left = offset2 * width - width + 'px';
+    offset2++;
+  }
+  setTimeout(() => {
+    cardContainersArray2[0].remove();
+    draw();
+    buttonLeft.onclick = scrollLeft;
+  }, 700)
+}
+
+function scrollRight() {
+  flag2 = true;
+  flag = true;
+  offset = -1;
+  buttonRight.onclick = null;
+  let cardContainersArray2 = document.querySelectorAll('.card-container-slider');
+  let offset2 = 1;
+  for (let i = 0; i < cardContainersArray2.length - 1; i++) {
+    cardContainersArray2[i].style.left = offset2 * width - width + 'px';
+    offset2++;
+  }
+  setTimeout(() => {
+    cardContainersArray2[2].remove();
+    draw();
+    buttonRight.onclick = scrollRight;
+  }, 700)
+}
+
+draw();draw();draw();
+buttonLeft.onclick = scrollLeft;
+buttonRight.onclick = scrollRight;
+
+
+//Что-то
+// const buttonLeft = document.querySelector('#button-left');
+// const buttonRight = document.querySelector('#button-right');
 //
 // const cardContainers = document.querySelectorAll('.card-container-slider');
 // const cards = cardContainers[0].querySelectorAll('.card');
@@ -104,26 +122,77 @@
 //   cardContainersArray[i] = cardContainers[i];
 //   cardContainers[i].remove();
 // }
-// console.log(cardsArray);
-// console.log(cardContainersArray);
 //
 // let step = 0;
-// let offset = 0;
+// let offset = -1;
 //
-// right.addEventListener('click', function(evt) {
-//   evt.preventDefault();
+// let globalArray = [];
+//
+// function draw() {
 //   cardsArray.sort(() => Math.random() - 0.5);
-//
 //   const cardContainers = document.createElement('div');
 //   cardContainers.classList.add('card-container-slider');
 //   for (let i = 0; i < cardsArray.length; i++) {
-//     cardContainers.append(cardsArray[i])
+//     cardContainers.append(cardsArray[i]);
 //   }
+//   globalArray.push(cardContainers);
+//   console.log(globalArray);
+//   globalArray[step].style.left = offset * 1160 + 'px';
+//   document.querySelector('#card-slider').innerHTML += `${globalArray[step].outerHTML}`;
+//   if (step + 1 === cardContainersArray.length) {
+//     step = 0;
+//   } else {
+//     step++;
+//     offset++;
+//   }
+//   if (globalArray.length >= 3) {
+//     globalArray = [];
+//   }
+// }
 //
+// function left2() {
+//   offset = 1;
+//   buttonLeft.onclick = null;
+//   let cardContainersArray2 = document.querySelectorAll('.card-container-slider');
+//   console.log(cardContainersArray2);
+//   let offset2 = 0;
+//   for (let i = 0; i < cardContainersArray2.length - 1; i++) {
+//     cardContainersArray2[i + 1].style.left = offset2 * 1160 - 1160 + 'px';
+//     offset2++;
+//   }
+//   setTimeout(() => {
+//     cardContainersArray2[0].remove();
+//     draw();
+//     buttonLeft.onclick = left2;
 //
-//   slider.classList.add('sliderAnimation');
-//   slider.style.transform = `translateX(-${stepSize * counter}px)`
+//   }, 700)
+// }
 //
-//   slider.append(div);
-// })
+// draw();draw();draw();
+// buttonLeft.onclick = left2;
 //
+// let flag = false;
+// function right() {
+//   offset = -1;
+//   buttonRight.onclick = null;
+//   let cardContainersArray2 = document.querySelectorAll('.card-container-slider');
+//   let offset2 = 1;
+//   for (let i = 0; i < cardContainersArray2.length - 1; i++) {
+//     cardContainersArray2[i].style.left = offset2 * 1160 - 1160 + 'px';
+//     offset2++;
+//   }
+//   if (flag) {
+//     cardContainersArray2[2].style.left = 0 + 'px';
+//     cardContainersArray2[0].style.left = 1160 + 'px';
+//   }
+//   flag = true;
+//   console.log(flag)
+//   setTimeout(() => {
+//     cardContainersArray2[2].remove();
+//     draw();
+//     buttonRight.onclick = right;
+//   }, 700)
+// }
+//
+// buttonRight.onclick = right;
+
