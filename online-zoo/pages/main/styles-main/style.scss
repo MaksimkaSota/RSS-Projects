@@ -26,10 +26,6 @@ a {
   color: #FFFFFF;
 }
 
-//.sliderAnimation {
-//  transition: all 0.4s linear;
-//}
-
 .current-link {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
@@ -128,10 +124,91 @@ a {
   }
 }
 
+.slider {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
+}
+.card-container-slider {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.7s linear;
+  z-index: -1;
+}
+
+.card-container-range {
+  display: flex;
+  position: absolute;
+  width: auto;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.burger-active {
+  transform: translate(0%, 100%);
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.transition {
+  transition: all 0.2s linear;
+}
+
 .header {
   background-color: #000000;
   .container {
     display: flex;
+  }
+  .burger-menu {
+    display: flex;
+    background: #FFFFFF;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    bottom: 100%;
+    transition: all 0.5s linear;
+    position: fixed;
+    z-index: 200;
+    .burger-list {
+      display: flex;
+      flex-direction: column;
+      margin: 1.5% 0 6.8% 1.6%;
+      gap: 4.6vw;
+      .burger-nav-list {
+        display: flex;
+        flex-direction: column;
+        .burger-list-item {
+          margin-bottom: 15px;
+        }
+      }
+      .burger-list-item-link {
+        color: #333B41;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+    .burger-close-button {
+      background: none;
+      border: none;
+      width: fit-content;
+      height: fit-content;
+      margin: 1.5% 1.6%;
+      cursor: pointer;
+    }
   }
 }
 
@@ -204,14 +281,17 @@ a {
       }
     }
     .pets {
-      display: flex;
       position: relative;
-      flex-wrap: wrap;
+      .slider {
+        height: 872px;
+      }
       .arrow {
         position: absolute;
         width: 62px;
         height: 62px;
         border-radius: 50%;
+        border: none;
+        z-index: 0;
       }
       .arrow-right {
         top: calc(50% - 41px);
@@ -241,33 +321,15 @@ a {
           background: rgba(75, 146, 0, 1) url("../../../assets/images/VectorLeftsvg.svg") no-repeat center;
         }
       }
-      //.slider {
-      //  display: flex;
-      //  position: relative;
-      //  height: 872px;
-      //  //overflow: hidden;
-      //}
-      //.card-container-slider {
-      //  display: flex;
-      //  justify-content: space-between;
-      //  flex-wrap: wrap;
-      //  width: 100%;
-      //  flex-shrink: 0;
-      //  position: absolute;
-      //  left: 0;
-      //  top: 0;
-      //  transition: all 0.4s linear;
-      //}
       .card {
         width: 31.55%;
         margin-bottom: 1.72%;
-        margin-right: 2.56%;
         border: 1px solid transparent;
         background: linear-gradient(to left, #FA6F32, #FE9013);
         box-shadow: inset 0 0 0 100vw white;
         border-radius: 5px;
         overflow: hidden;
-        &:nth-child(5) {
+        &:nth-child(3) {
           margin-right: 0;
         }
         &:last-child {
@@ -411,6 +473,9 @@ a {
 .testimonials {
   background: url("../../../assets/images/leav_foto.png") no-repeat right 646px;
   padding: 140px 0 180px;
+  .comment-popup-container {
+    display: none;
+  }
   .container {
     .title {
       font-size: 2.25rem;
@@ -420,16 +485,24 @@ a {
       color: rgba(51, 59, 65, 1);
     }
     .card-container {
-      display: flex;
-      justify-content: space-between;
       margin: 4.05% 0 1.81%;
+      position: relative;
+      overflow: hidden;
+      height: 398px;
+      width: 100%;
+      cursor: grab;
       .card {
-        width: 23.10%;
+        margin-right: 30px;
+        flex-shrink: 0;
+        width: 268px;
         border: 2px solid transparent;
         background: linear-gradient(0deg, #FEBDAB 74%, #F3A9F8 66%, #E0D8F0 100%, #EAF7FE 100%, #EAF7FE 100%);
         box-shadow: inset 0 0 0 100vw #f1f3f2;
         border-radius: 20px;
-        padding: 1.29% 1.12% 1.64% 1.38%;
+        padding: 15px 15px 19px 16px;
+        &:last-child {
+          margin-right: 0;
+        }
         .card-header {
           display: flex;
           margin-bottom: 3.76%;
@@ -619,9 +692,9 @@ a {
           left: 33.19%;
         }
         .card {
-          &:nth-child(3),
-          &:nth-child(4),
-          &:nth-child(5) {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
             margin-bottom: 7.93%;
           }
         }
@@ -717,6 +790,9 @@ a {
         }
       }
       .pets {
+        .slider {
+          height: 801px;
+        }
         .arrow-right {
           top: calc(51% - 41px);
           right: 34.25%;
@@ -727,15 +803,14 @@ a {
         }
         .card {
           width: 31.24%;
-          margin-right: 3.08%;
-          &:nth-child(3),
-          &:nth-child(4),
-          &:nth-child(5) {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
             margin-bottom: 9.78%;
           }
-          &:nth-child(6),
-          &:nth-child(7),
-          &:nth-child(8) {
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(6) {
             margin-bottom: 0;
           }
           &:hover .text-container {
@@ -787,11 +862,8 @@ a {
       .card-container {
         margin: 3.19% 0 2.13%;
         .card {
-          width: 31.13%;
-          padding: 1.59% 2.13% 1.75% 1.70%;
-          &:last-child {
-            display: none;
-          }
+          margin-right: 30px;
+          width: 293px;
           .card-header {
             margin-bottom: 5.8%;
             img {
@@ -864,9 +936,9 @@ a {
     .container {
       .pets {
         .card {
-          &:nth-child(3),
-          &:nth-child(4),
-          &:nth-child(5) {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
             margin-bottom: 11.00%;
           }
         }
@@ -1002,6 +1074,9 @@ a {
         }
       }
       .pets {
+        .slider {
+          height: 756px;
+        }
         .arrow-right {
           top: calc(50.5% - 41px);
           right: 37.25%;
@@ -1012,21 +1087,20 @@ a {
         }
         .card {
           width: 47.50%;
-          margin-right: 4.96%;
-          &:nth-child(3),
-          &:nth-child(4) {
+          &:nth-child(1),
+          &:nth-child(2) {
             margin-bottom: 15.33%;
           }
-          &:nth-child(6),
-          &:nth-child(7) {
+          &:nth-child(4),
+          &:nth-child(5) {
             margin-bottom: 0;
           }
-          &:nth-child(5),
-          &:nth-child(8) {
+          &:nth-child(3),
+          &:nth-child(6) {
             display: none;
           }
-          &:nth-child(4),
-          &:nth-child(7) {
+          &:nth-child(2),
+          &:nth-child(5) {
             margin-right: 0;
           }
           .text-container {
@@ -1109,11 +1183,85 @@ a {
   }
   .testimonials {
     background: url("../../../assets/images/leav_foto3.png") no-repeat right 524px;
+    .card-container-range {
+      pointer-events: all;
+    }
+    .comment-popup-container {
+      z-index: 10;
+      display: block;
+    }
+    .comment-popup {
+      position: fixed;
+      top: 25%;
+      left: 30%;
+      transition: all 0.3s linear;
+      opacity: 0;
+      z-index: 1;
+      transform: scale(0);
+      .comment-inner {
+        width: 265px;
+        height: 389px;
+        border: 2px solid transparent;
+        background: linear-gradient(0deg, #FEBDAB 74%, #F3A9F8 66%, #E0D8F0 100%, #EAF7FE 100%, #EAF7FE 100%);
+        box-shadow: inset 0 0 0 100vw #f1f3f2;
+        border-radius: 20px;
+        padding: 15px 15px 20px 15px;
+        .card-header {
+          display: flex;
+          margin-bottom: 10px;
+          img {
+            margin-right: 10px;
+          }
+          .info-container {
+            .name {
+              font-size: 1rem;
+              font-weight: 400;
+              line-height: 120%;
+              color: rgba(0, 0, 0, 1);
+            }
+            .location {
+              font-size: 0.94rem;
+              font-weight: 300;
+              line-height: 120%;
+              color: #BDBDBD;
+            }
+          }
+        }
+        .card-content {
+          font-size: 0.94rem;
+          font-weight: 300;
+          line-height: 120%;
+          color: rgba(118, 116, 116, 1);
+          overflow: hidden;
+          max-height: 308px;
+        }
+      }
+      .close-popup {
+        width: fit-content;
+        height: fit-content;
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 12px 10px 0 10px;
+        pointer-events: all;
+        position: absolute;
+        top: 0;
+        right: -30px;
+      }
+    }
+    .comment-popup-active {
+      opacity: 1;
+      transform: scale(1);
+    }
     .container {
       .title {
         margin-bottom: 5%;
       }
       .card-container {
+        height: 357px;
+        .card-container-range {
+          flex-direction: column;
+        }
         display: block;
         margin: 2.25% 0 6.67%;
         .card {
@@ -1256,8 +1404,8 @@ a {
           left: 24.25%;
         }
         .card {
-          &:nth-child(3),
-          &:nth-child(4) {
+          &:nth-child(1),
+          &:nth-child(2) {
             margin-bottom: 20.33%;
           }
         }
@@ -1328,6 +1476,9 @@ a {
       }
       .pets {
         display: block;
+        .slider {
+          height: 1388px;
+        }
         .arrow-right {
           display: none;
         }
@@ -1336,12 +1487,12 @@ a {
         }
         .card {
           width: 95%;
-          &:nth-child(3),
-          &:nth-child(4),
-          &:nth-child(6), {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(4), {
             margin-bottom: 6.67%
           }
-          &:nth-child(7) {
+          &:nth-child(5) {
             margin-bottom: 0;
           }
         }
@@ -1399,6 +1550,9 @@ a {
   .testimonials {
     background: url("../../../assets/images/leav_foto4.png") no-repeat right 516px;
     padding: 30px 0 60px;
+    .comment-popup {
+      left: 20px;
+    }
     .container {
       .title {
         font-size: 1.5rem;
