@@ -396,6 +396,12 @@ a {
   padding-top: 2px;
   cursor: pointer;
 }
+.pick-and-feed .container .donate-container .money-donate-block .money .active-sum {
+  color: #FE9013;
+}
+.pick-and-feed .container .donate-container .money-donate-block .money .active-sum span {
+  color: #FE9013;
+}
 .pick-and-feed .container .donate-container .round-button {
   margin: 0 auto;
 }

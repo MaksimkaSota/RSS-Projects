@@ -104,25 +104,25 @@
           <div class="amount-space">
             <input class="amount-circle" type="radio" name="circle" value="5000" id="5000">
             <input class="amount-circle" type="radio" name="circle" value="2000" id="2000">
-            <input class="amount-circle" checked type="radio" name="circle" value="1000" id="1000">
+            <input class="amount-circle" type="radio" name="circle" value="1000" id="1000">
             <input class="amount-circle" type="radio" name="circle" value="500" id="500">
             <input class="amount-circle" type="radio" name="circle" value="250" id="250">
-            <input class="amount-circle" type="radio" name="circle" value="100" id="100">
+            <input class="amount-circle" checked type="radio" name="circle" value="100" id="100">
             <input class="amount-circle" type="radio" name="circle" value="50" id="50">
             <input class="amount-circle" type="radio" name="circle" value="25" id="25">
           </div>
           <div class="money">
-            <label for="5000"><span>$</span>5000</label>
-            <label for="2000"><span>$</span>2000</label>
-            <label class="checked" for="1000"><span>$</span>1000</label>
-            <label for="500"><span>$</span>500</label>
-            <label for="250"><span>$</span>250</label>
-            <label for="100"><span>$</span>100</label>
-            <label for="50"><span>$</span>50</label>
-            <label for="25"><span>$</span>25</label>
+            <label class="money-text" for="5000"><span>$</span>5000</label>
+            <label class="money-text" for="2000"><span>$</span>2000</label>
+            <label class="money-text" for="1000"><span>$</span>1000</label>
+            <label class="money-text" for="500"><span>$</span>500</label>
+            <label class="money-text" for="250"><span>$</span>250</label>
+            <label class="money-text active-sum" for="100"><span>$</span>100</label>
+            <label class="money-text" for="50"><span>$</span>50</label>
+            <label class="money-text" for="25"><span>$</span>25</label>
           </div>
         </div>
-        <input class="input-number" name="email" placeholder="Another amount" type="number">
+        <input class="input-number" min="1" max="9999" maxlength="4" name="email" placeholder="Another amount" type="number" value="100">
         <form class="radio-buttons">
           <input type="radio" class="amount-radio" id="monthly" name="amount" value="Monthly">
           <label for="monthly">Monthly</label>
@@ -191,6 +191,7 @@
       </div>
     </div>
   </footer>
-  <script src="burger.js"></script>
+  <script src="js-donate/burger.js"></script>
+  <script src="js-donate/amount.js"></script>
 </body>
 </html>

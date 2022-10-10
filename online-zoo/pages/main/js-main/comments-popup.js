@@ -28,9 +28,7 @@ buttonCloseCommentPopup.addEventListener('click', function () {
   closeCommentPopup();
 })
 
-let commentInner = document.querySelector('.comment-inner');
 commentPopupContainer.addEventListener('click', function func(event) {
-  console.log(event.target.className);
   if (commentPopupContainer.className === event.target.className) {
     closeCommentPopup();
   }
