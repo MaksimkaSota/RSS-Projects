@@ -9,6 +9,7 @@ let newValue = 0;
 function rangeValue() {
   newValue = - range.value;
   sliderRange.style.left = newValue * offsetWidth + 'px';
+  sliderRange.classList.add('transition');
 }
 range.addEventListener("input", rangeValue);
 
@@ -18,13 +19,14 @@ let xAxis;
 sliderContainerRange.addEventListener("mouseup", function()  {
   sliderContainerRange.style.cursor = `grab`;
   rangeValue();
+  sliderRange.classList.remove('transition');
 });
 
 sliderContainerRange.addEventListener('mousedown', function(event) {
   clicked = true;
   xAxis = event.offsetX - sliderRange.offsetLeft;
-  console.log(event.offsetX);
   sliderContainerRange.style.cursor = `grabbing`;
+  sliderRange.classList.remove('transition');
 })
 
 window.addEventListener("mouseup", function()  {
@@ -62,7 +64,6 @@ sliderContainerRange.addEventListener("mousemove", function(event)  {
     if (parseInt(sliderRange.style.left) <= -7 * offsetWidth  ) {
       range.value = 7;
     }
-
 });
 
 function checkSize() {

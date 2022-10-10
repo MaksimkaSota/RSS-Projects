@@ -5,7 +5,6 @@ const cardContainers = document.querySelectorAll('.card-container-slider');
 const cards = cardContainers[0].querySelectorAll('.card');
 
 const width = cardContainers[0].clientWidth;
-console.log(width);
 
 let cardsArray = [];
 for (let i = 0; i < cards.length; i++) {

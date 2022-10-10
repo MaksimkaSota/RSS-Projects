@@ -40,6 +40,42 @@
         </ul>
       </nav>
     </div>
+    <div class="burger-menu-container">
+      <div class="burger-menu">
+        <ul class="burger-list">
+          <li class="burger-list-item">
+            <a class="burger-list-item-link" href="./index.html">
+              <img class="burger-logo-img" alt="bamboo" src="../../assets/images/burger_logo.svg">
+            </a>
+          </li>
+          <li class="burger-list-item">
+            <ul class="burger-nav-list">
+              <li class="burger-list-item">
+                <a class="burger-list-item-link current-page" href="./index.html">About</a>
+              </li>
+              <li class="burger-list-item">
+                <a class="burger-list-item-link" href="#">Map</a>
+              </li>
+              <li class="burger-list-item">
+                <a class="burger-list-item-link" href="#">Zoos</a>
+              </li>
+              <li class="burger-list-item">
+                <a class="burger-list-item-link" href="../donate/index.html">Donate</a>
+              </li>
+              <li class="burger-list-item">
+                <a class="burger-list-item-link" href="#contacts">Contact us</a>
+              </li>
+              <li class="burger-list-item">
+                <a class="burger-list-item-link" href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <button class="burger-close-button">
+          <img class="burger-close-button-img" alt="" src="../../assets/images/burger_x_icon.svg">
+        </button>
+      </div>
+    </div>
   </header>
   <div class="watch-your-favorite">
     <div class="container">
@@ -161,10 +197,29 @@
     </div>
   </div>
   <div class="testimonials">
+    <div class="comment-popup-container">
+      <div class="comment-popup">
+        <div class="popup-comment">
+          <div class="comment-inner">
+            <div class="card-header">
+              <img id="image-popup" src="" alt="">
+              <div class="info-container">
+                <p id="name-popup" class="name"></p>
+                <p id="location-popup" class="location"></p>
+              </div>
+            </div>
+            <p id="content-popup" class="card-content"></p>
+          </div>
+        </div>
+        <button class="close-popup">
+          <img id="image-close-popup" alt="" class="close-popup-img" src="">
+        </button>
+      </div>
+    </div>
     <div class="container">
       <h3 class="title">Testimonials</h3>
       <div class="card-container" id="slider-container-range">
-        <div class="card-container-range" id="slider-range">
+        <div class="card-container-range transition" id="slider-range">
           <div class="card">
             <div class="card-header">
               <img src="../../assets/images/m1.svg" alt="">
@@ -366,7 +421,9 @@
       </div>
     </div>
   </footer>
-  <script src="slider.js"></script>
-  <script src="range.js"></script>
+  <script src="js-main/slider.js"></script>
+  <script src="js-main/range.js"></script>
+  <script src="js-main/burger-popup.js"></script>
+  <script src="js-main/comments-popup.js"></script>
 </body>
 </html>
