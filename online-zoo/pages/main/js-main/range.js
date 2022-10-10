@@ -69,7 +69,6 @@ sliderContainerRange.addEventListener("mousemove", function(event)  {
 function checkSize() {
   let sliderContainerRangeOut = sliderContainerRange.getBoundingClientRect();
   let sliderRangeIn = sliderRange.getBoundingClientRect();
-  console.log(sliderRangeIn.width - sliderContainerRangeOut.width)
   if (parseInt(sliderRange.style.left) > 0) {
     sliderRange.style.left = `0px`;
   } else if (sliderRangeIn.right < sliderContainerRangeOut.right) {
