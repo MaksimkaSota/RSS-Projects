@@ -1,6 +1,7 @@
 let body = document.querySelector('body');
 
-// let step = 0;
+// The number of moves
+let step = 0;
 
 let html = `
   <div class="game-container">
@@ -32,8 +33,17 @@ let html = `
 `
 body.insertAdjacentHTML("afterbegin" , html);
 
+// The game duration in minutes and seconds
+let seconds = 0;
+let minutes = 0;
+let secondsContainer = document.querySelector(".seconds-container");
+let minutesContainer = document.querySelector(".minutes-container");
+let interval;
+let flag = true;
+
 let countItems = 16;
 let sizeGameArr = [];
+let winFlatArr = [];
 
 let items = [];
 let matrix = [];
@@ -42,6 +52,7 @@ getGame();
 function getGame() {
   for (let i = 1; i <= countItems; i++) {
     sizeGameArr.push(i);
+    winFlatArr.push(i);
   }
 
   let gameBlock = body.querySelector('.game-block');
@@ -52,7 +63,6 @@ function getGame() {
   gameBlock.innerHTML = gameBlockContent;
 
   items = Array.from(gameBlock.querySelectorAll('.item'));
-
 }
 
 // 1. Choice of sizes
@@ -61,8 +71,6 @@ size3x3button.addEventListener('click', function(event) {
   countItems = 9;
   size(event, countItems);
   this.classList.add('active');
-  // step++;
-  // document.querySelector('.moves').innerHTML = `${step}`;
 })
 
 let size4x4button = body.querySelector('#size4x4');
@@ -107,6 +115,7 @@ function size(event, countItems) {
   }
   event.preventDefault();
   sizeGameArr = [];
+  winFlatArr = [];
   getGame();
   let itemsNode = document.querySelectorAll('.item');
   for (let item of itemsNode) {
@@ -115,6 +124,10 @@ function size(event, countItems) {
     item.classList.add(`size${Math.sqrt(countItems)}x${Math.sqrt(countItems)}`);
   }
   position();
+  changePosition();
+  zeroing();
+  //Для быстрой проверки комментировать тут!
+  shuffle();
 }
 
 // 2. Position of elements
@@ -130,36 +143,53 @@ function position() {
 // 3. Shuffle of elements
 let shuffleButton = document.querySelector('#shuffle');
 shuffleButton.addEventListener('click', function() {
+  shuffle()
+  zeroing();
+})
+
+shuffle();
+function shuffle() {
   let flatMatrix = matrix.flat();
   const shuffledArray = shuffleArray(flatMatrix);
   matrix = getMatrix(shuffledArray, Math.sqrt(countItems));
   setPositionItems(matrix);
-})
+}
 
 //4. Change position by click
-// Размножить на все
 changePosition();
 function changePosition() {
   let blankNumber = countItems;
-  let gameBlock = body.querySelector('.game-block');
-  gameBlock.addEventListener('click', function (event) {
-    let button = event.target.closest('button');
-    if (!button) {
-      return;
-    }
-    let buttonNumber = Number(button.innerHTML);
-    let buttonCoords = findCoordinatesByNumber(buttonNumber, matrix);
-    let blankCoords = findCoordinatesByNumber(blankNumber, matrix);
-    let isValid = isValidForSwap(buttonCoords, blankCoords);
+  let gameButtons = document.querySelectorAll('.item');
+  for (let button of gameButtons) {
+    button.addEventListener('click', function () {
+      if (!button) {
+        return;
+      }
+      let buttonNumber = Number(button.innerHTML);
+      let buttonCoords = findCoordinatesByNumber(buttonNumber, matrix);
+      let blankCoords = findCoordinatesByNumber(blankNumber, matrix);
+      let isValid = isValidForSwap(buttonCoords, blankCoords);
 
-    if (isValid) {
-      swap(blankCoords, buttonCoords, matrix);
-      setPositionItems(matrix);
-    }
-  })
+      if (isValid) {
+        swap(blankCoords, buttonCoords, matrix);
+        setPositionItems(matrix);
+        step++;
+        document.querySelector('.moves').innerHTML = `${step}`;
+        if (flag) {
+          interval = setInterval(clockTimer, 1000);
+        }
+        flag = false;
+      }
+    });
+    // Drag functionality
+    // button.addEventListener("dragstart", dragStart);  //click an image to drag
+    // button.addEventListener("dragover", dragOver);    //moving image around while clicked
+    // button.addEventListener("dragenter", dragEnter);  //dragging image onto another one
+    // button.addEventListener("dragleave", dragLeave);  //dragged image leaving anohter image
+    // button.addEventListener("drop", dragDrop);        //drag an image over another image, drop the image
+    // button.addEventListener("dragend", dragEnd);      //after drag drop, swap the two tiles
+  }
 }
-
-//5. Show won
 
 //Helpers
 function getMatrix(arr, count) {
@@ -223,34 +253,126 @@ function swap(coords1, coords2, matrix) {
   let coords1Number = matrix[coords1.y][coords1.x];
   matrix[coords1.y][coords1.x] = matrix[coords2.y][coords2.x];
   matrix[coords2.y][coords2.x] = coords1Number;
+
+  //5. Show won
+  if (isWon(matrix)) {
+    setTimeout(() => {
+      if (seconds < 10) {
+        seconds = `0${seconds}`
+      }
+      if (minutes < 10) {
+        minutes = `0${minutes}`
+      }
+      alert(`Hooray! You solved the puzzle in ${minutes}:${seconds} and ${step} moves!`);
+      zeroing();
+    }, 300);
+  }
 }
 
-// let seconds = 0;
-// let minutes = 0;
-// function clockTimer() {
-//   if (seconds < 10) {
-//     seconds = `0${seconds}`;
-//   }
-//   if (minutes < 10) {
-//     // minutes = `0${minutes}`;
-//   }
+function clockTimer() {
+  seconds++;
+  if (seconds < 10) {
+    secondsContainer.innerHTML = `0${seconds}`;
+  }
+  if (seconds >= 10) {
+    secondsContainer.innerHTML = `${seconds}`;
+  }
+  if (seconds >= 60) {
+    minutes++;
+    minutesContainer.innerHTML = `0${minutes}`;
+    seconds = 0;
+    secondsContainer.innerHTML = `00`;
+  }
+  if (minutes > 9) {
+    minutesContainer.innerHTML = `${minutes}`;
+  }
+}
+
+function zeroing() {
+  step = 0;
+  document.querySelector('.moves').innerHTML = `${step}`;
+  flag = true;
+  clearInterval(interval);
+  seconds = 0;
+  minutes = 0;
+  secondsContainer.innerHTML = `0${seconds}`;
+  minutesContainer.innerHTML = `0${minutes}`;
+}
+
+function isWon(matrix) {
+  const flatMatrix = matrix.flat();
+  for (let i = 0; i < winFlatArr.length; i++) {
+    if (flatMatrix[i] !== winFlatArr[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// let currTile;
+// let otherTile;
 //
-//   if (seconds === 60) {
-//     minutes++;
-//     seconds = 0;
-//   }
-//
-//   let secondsContainer = document.querySelector(".seconds-container");
-//   let minutesContainer = document.querySelector(".minutes-container");
-//
-//   secondsContainer.innerHTML = `${seconds}`;
-//   minutesContainer.innerHTML = `${minutes}`;
-//
-//   setTimeout("clockTimer()", 1000);
-//
-//   seconds++;
+// function dragStart() {
+//   currTile = this; //this refers to the img tile being dragged
+//   console.log(currTile);
 // }
 //
-// clockTimer();
+// function dragOver(e) {
+//   e.preventDefault();
+// }
+//
+// function dragEnter(e) {
+//   e.preventDefault();
+// }
+//
+// function dragLeave() {
+//
+// }
+//
+// function dragDrop() {
+//   otherTile = this; //this refers to the img tile being dropped on
+// }
+//
+// function dragEnd() {
+//   let currentNumber = currTile.innerHTML;
+//
+//   let otherNumber = otherTile.innerHTML;
+//
+//   currTile.innerHTML = otherNumber;
+//   otherTile.innerHTML = currentNumber;
+//
+//   // if (!otherTile.src.includes("3.jpg")) {
+//   //   return;
+//   // }
+//   //
+//   // let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
+//   // let r = parseInt(currCoords[0]);
+//   // let c = parseInt(currCoords[1]);
+//   //
+//   // let otherCoords = otherTile.id.split("-");
+//   // let r2 = parseInt(otherCoords[0]);
+//   // let c2 = parseInt(otherCoords[1]);
+//   //
+//   // let moveLeft = r == r2 && c2 == c-1;
+//   // let moveRight = r == r2 && c2 == c+1;
+//   //
+//   // let moveUp = c == c2 && r2 == r-1;
+//   // let moveDown = c == c2 && r2 == r+1;
+//   //
+//   // let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
+//   //
+//   // if (isAdjacent) {
+//   //   let currImg = currTile.src;
+//   //   let otherImg = otherTile.src;
+//   //
+//   //   currTile.src = otherImg;
+//   //   otherTile.src = currImg;
+//   //
+//   //   turns += 1;
+//   //   document.getElementById("turns").innerText = turns;
+//   // }
+//   //
+//
+// }
 
 
