@@ -6,7 +6,9 @@
 html, body {
   width: 100%;
   height: 100%;
-  font-family: "Georgia", serif;
+  background: url("assets/MAUD_EBB-Dunedin_Hero_1_Web.png") no-repeat center;
+  color: #C2B9B0;
+  font-family: "Bookman", serif;
 }
 
 ul, li {
@@ -48,15 +50,11 @@ a {
   height: 12.5%;
 }
 
-.active {
-  color: orange;
-  cursor: default;
-}
-
 .game-container {
-  width: 50%;
+  max-width: 500px;
   margin: 0 auto;
-  background: aqua;
+  background: rgba(93, 92, 97, 0.3);
+  border-radius: 0 0 5px 5px;
   user-select: none;
 }
 .game-container .game-container-inner {
@@ -73,22 +71,33 @@ a {
   margin: 2% 0;
 }
 .game-container .game-container-inner .button-block .game-button {
-  width: 30%;
+  width: 27%;
   font-weight: 700;
-  color: white;
+  color: #5D5C61;
   padding: 10px;
   border-radius: 3px;
-  background: orange;
+  background: #B1A296;
   border: none;
   cursor: pointer;
 }
-.game-container .game-container-inner .button-block .game-button:hover {
-  background-color: #6c4802;
+.game-container .game-container-inner .button-block .game-button:hover:not(:last-child) {
+  background-color: #C2B9B0;
+}
+.game-container .game-container-inner .button-block .game-button:active {
+  color: #C2B9B0;
+  background: #557A95;
+}
+.game-container .game-container-inner .button-block .game-button:last-child {
+  width: 15%;
+}
+.game-container .game-container-inner .button-block .sound-on {
+  color: #C2B9B0;
+  background: #557A95;
 }
 .game-container .game-container-inner .game-block {
   width: 100%;
   padding-bottom: 100%;
-  background: orange;
+  background: #557A95;
   position: relative;
 }
 .game-container .game-container-inner .game-block .item {
@@ -110,6 +119,91 @@ a {
 .game-container .game-container-inner .choice-size-block {
   display: flex;
   justify-content: center;
+}
+.game-container .game-container-inner .choice-size-block .text {
+  margin-right: 10px;
+}
+.game-container .game-container-inner .choice-size-block .size-container .size {
+  color: black;
+}
+.game-container .game-container-inner .choice-size-block .size-container .size:hover {
+  color: #C2B9B0;
+}
+.game-container .game-container-inner .choice-size-block .size-container .active {
+  color: #C2B9B0;
+  cursor: default;
+}
+
+table {
+  width: 50%;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  background-color: white;
+  color: black;
+}
+table th {
+  font-weight: bold;
+  padding: 5px;
+  background: #efefef;
+  border: 1px solid #dddddd;
+}
+table td {
+  border: 1px solid #dddddd;
+  padding: 5px;
+  text-align: center;
+}
+
+.button-close {
+  width: 50%;
+  font-weight: 700;
+  color: #5D5C61;
+  padding: 5px;
+  background: #B1A296;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+.button-close:hover {
+  background-color: #C2B9B0;
+}
+
+.fixed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  html, body {
+    font-size: 13px;
+  }
+  .game-container .game-container-inner .button-block {
+    display: block;
+  }
+  .game-container .game-container-inner .button-block .game-button {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .game-container .game-container-inner .button-block .game-button:not(:last-child) {
+    margin-bottom: 2px;
+  }
+  .game-container .game-container-inner .button-block .game-button:last-child {
+    width: 50%;
+  }
+  table {
+    width: 70%;
+  }
+  .button-close {
+    width: 70%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

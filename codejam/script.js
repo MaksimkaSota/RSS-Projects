@@ -1,8 +1,5 @@
 let body = document.querySelector('body');
 
-// The number of moves
-let step = 0;
-
 let html = `
   <div class="game-container">
     <div class="game-container-inner">
@@ -11,17 +8,18 @@ let html = `
         <button id="shuffle" class="game-button">Shuffle and start</button>
         <button id="save" class="game-button">Save</button>
         <button id="result" class="game-button">Result</button>
+        <button id="sound" class="game-button sound-on">Sound (on/off)</button>
       </div>
       <div class="game-block"></div>
       <div class="info-block">
-        <p>Moves:<span class="moves">0</span></p>
-        <p>Time:<span class="minutes-container">00</span>:<span class="seconds-container">00</span></p>
+        <p>Moves: <span class="moves">0</span></p>
+        <p>Time: <span class="minutes-container">00</span>:<span class="seconds-container">00</span></p>
       </div>
       <div class="choice-size-block">
         <p class="text">Other size:</p>
         <div class="size-container">
           <a class="size" id="size3x3" href="#">3x3</a>
-          <a class="size" id="size4x4" href="#">4x4</a>
+          <a class="size active" id="size4x4" href="#">4x4</a>
           <a class="size" id="size5x5" href="#">5x5</a>
           <a class="size" id="size6x6" href="#">6x6</a>
           <a class="size" id="size7x7" href="#">7x7</a>
@@ -29,9 +27,21 @@ let html = `
         </div>
       </div>
     </div>
+    <audio id="audio" src="assets/zvuk-vzryva-dlya-video.mp3"></audio>
   </div>
 `
-body.insertAdjacentHTML("afterbegin" , html);
+body.innerHTML = html;
+
+// Audio on/off
+let soundFlag = true;
+let audio = document.querySelector('#audio');
+document.querySelector('#sound').addEventListener('click', function () {
+  soundFlag ? soundFlag = false : soundFlag = true;
+  document.querySelector('#sound').classList.toggle("sound-on");
+})
+
+// The number of moves
+let step = 0;
 
 // The game duration in minutes and seconds
 let seconds = 0;
@@ -58,7 +68,7 @@ function getGame() {
   let gameBlock = body.querySelector('.game-block');
   let gameBlockContent = '';
   for (let i = 0; i < sizeGameArr.length; i++) {
-    gameBlockContent += `<button class="item size4x4">${sizeGameArr[i]}</button>`
+    gameBlockContent += `<button class="item size4x4" draggable="true">${sizeGameArr[i]}</button>`
   }
   gameBlock.innerHTML = gameBlockContent;
 
@@ -133,7 +143,8 @@ function size(event, countItems) {
 // 2. Position of elements
 position();
 function position() {
-  items[countItems - 1].style.display = 'none';
+  // items[countItems - 1].style.display = 'none';
+  items[countItems - 1].style.opacity = '0';
   matrix = getMatrix (
     items.map((item) => Number(item.innerHTML)), Math.sqrt(countItems)
   )
@@ -147,6 +158,19 @@ shuffleButton.addEventListener('click', function() {
   zeroing();
 })
 
+// document.querySelector('#save').addEventListener('click', function () {
+//   localStorage.setItem('matrix', JSON.stringify(matrix));
+//   // console.log(JSON.parse(localStorage.getItem('matrix')));
+//   localStorage.clear()
+// })
+
+// let matrixFromStore = localStorage.getItem('matrix')
+// if (matrixFromStore) {
+//   setPositionItems(JSON.parse(matrixFromStore));
+// } else {
+//   shuffle();
+// }
+
 shuffle();
 function shuffle() {
   let flatMatrix = matrix.flat();
@@ -156,6 +180,7 @@ function shuffle() {
 }
 
 //4. Change position by click
+let blankButton;
 changePosition();
 function changePosition() {
   let blankNumber = countItems;
@@ -166,28 +191,64 @@ function changePosition() {
         return;
       }
       let buttonNumber = Number(button.innerHTML);
+      console.log(matrix);
       let buttonCoords = findCoordinatesByNumber(buttonNumber, matrix);
       let blankCoords = findCoordinatesByNumber(blankNumber, matrix);
       let isValid = isValidForSwap(buttonCoords, blankCoords);
 
+
       if (isValid) {
         swap(blankCoords, buttonCoords, matrix);
         setPositionItems(matrix);
+
         step++;
         document.querySelector('.moves').innerHTML = `${step}`;
         if (flag) {
           interval = setInterval(clockTimer, 1000);
         }
         flag = false;
+
+        if (soundFlag) {
+          audio.load();
+          audio.play();
+        }
       }
     });
     // Drag functionality
-    // button.addEventListener("dragstart", dragStart);  //click an image to drag
-    // button.addEventListener("dragover", dragOver);    //moving image around while clicked
-    // button.addEventListener("dragenter", dragEnter);  //dragging image onto another one
-    // button.addEventListener("dragleave", dragLeave);  //dragged image leaving anohter image
-    // button.addEventListener("drop", dragDrop);        //drag an image over another image, drop the image
-    // button.addEventListener("dragend", dragEnd);      //after drag drop, swap the two tiles
+    let buttonCoords;
+    let blankCoords;
+    button.addEventListener("dragstart", function() { //click button to drag
+      let buttonNumber = Number(button.innerHTML);
+      buttonCoords = findCoordinatesByNumber(buttonNumber, matrix);
+      blankCoords = findCoordinatesByNumber(blankNumber, matrix);
+    });
+    button.addEventListener("dragover", (event) => event.preventDefault()); //moving button around while clicked
+    button.addEventListener("dragenter",(event) => event.preventDefault());  //dragging button onto another one
+    button.addEventListener("drop", function() { //drag an image over another image, drop the image
+      blankButton = this;
+    });
+    button.addEventListener("dragend", function() { //after drag drop, swap the two tiles
+      if (+blankButton.innerHTML !== blankNumber) {
+        return;
+      }
+      let isValid = isValidForSwap(buttonCoords, blankCoords);
+      if (isValid) {
+        swap(blankCoords, buttonCoords, matrix);
+        setPositionItems(matrix);
+
+        step++;
+        document.querySelector('.moves').innerHTML = `${step}`;
+        if (flag) {
+          interval = setInterval(clockTimer, 1000);
+        }
+        flag = false;
+
+        if (soundFlag) {
+          audio.load();
+          audio.play();
+        }
+      }
+    });
   }
 }
 
@@ -264,8 +325,36 @@ function swap(coords1, coords2, matrix) {
         minutes = `0${minutes}`
       }
       alert(`Hooray! You solved the puzzle in ${minutes}:${seconds} and ${step} moves!`);
+
+      //Save top 10 results in localStorage
+      let storedResults = localStorage.getItem(`results${countItems}`);
+      let results = storedResults ? JSON.parse(storedResults) : [];
+      let resultObject = {
+        step: step,
+        timeMinutes: minutes,
+        timeSecond: seconds,
+      }
+      results.push(resultObject);
+      results.sort((a, b) => {
+        if (a.step > b.step) return 1;
+        if (a.step < b.step) return -1;
+        if (a.step === b.step) {
+          if (a.timeMinutes > b.timeMinutes) return 1;
+          if (a.timeMinutes < b.timeMinutes) return -1;
+          if (a.timeMinutes === b.timeMinutes) {
+            if (a.timeSecond > b.timeSecond) return 1;
+            if (a.timeSecond < b.timeSecond) return -1;
+          }
+        }
+      });
+      if (results.length > 10) {
+        results.pop();
+      }
+      localStorage.setItem(`results${countItems}`, JSON.stringify(results));
+
       zeroing();
     }, 300);
+
   }
 }
 
@@ -309,70 +398,71 @@ function isWon(matrix) {
   return true;
 }
 
-// let currTile;
-// let otherTile;
+//Show top 10 results
+document.querySelector("#result").addEventListener('click', function () {
+  let results = localStorage.getItem(`results${countItems}`);
+
+  let divTableContainer = document.querySelector('.table-container');
+  if (divTableContainer) {
+    divTableContainer.remove();
+  }
+
+  if (results) {
+    let divTableContainer = document.createElement('div');
+    divTableContainer.classList.add('fixed');
+    divTableContainer.classList.add('table-container');
+    divTableContainer.addEventListener('click', (event) => {
+      if (divTableContainer.className === event.target.className) {
+        divTableContainer.remove();
+      }
+    })
+
+    let table = document.createElement('table');
+    let tr = document.createElement('tr');
+    tr.innerHTML = `
+      <th>Top</th>
+      <th>Moves</th>
+      <th>Time</th>
+    `;
+    table.append(tr);
+    JSON.parse(results).forEach((item, index) => {
+      let tr = document.createElement('tr');
+      let trInner = `
+          <td>${index+1}</td>
+          <td>${item.step}</td>
+          <td>${item.timeMinutes}:${item.timeSecond}</td>
+      `
+      tr.innerHTML += trInner;
+      table.append(tr);
+    });
+
+    let buttonClose = document.createElement("button");
+    buttonClose.innerHTML = 'Close';
+    buttonClose.classList.add('button-close');
+    buttonClose.addEventListener('click', function() {
+      divTableContainer.remove();
+    })
+
+    divTableContainer.append(table, buttonClose);
+    body.append(divTableContainer);
+  } else {
+    alert('There are no best scores! Play the game to get to the top!');
+  }
+})
+
+
+// document.querySelector('#save').addEventListener('click', function () {
+//   localStorage.setItem('matrix', JSON.stringify(matrix));
+// })
 //
-// function dragStart() {
-//   currTile = this; //this refers to the img tile being dragged
-//   console.log(currTile);
-// }
 //
-// function dragOver(e) {
-//   e.preventDefault();
-// }
-//
-// function dragEnter(e) {
-//   e.preventDefault();
-// }
-//
-// function dragLeave() {
-//
-// }
-//
-// function dragDrop() {
-//   otherTile = this; //this refers to the img tile being dropped on
-// }
-//
-// function dragEnd() {
-//   let currentNumber = currTile.innerHTML;
-//
-//   let otherNumber = otherTile.innerHTML;
-//
-//   currTile.innerHTML = otherNumber;
-//   otherTile.innerHTML = currentNumber;
-//
-//   // if (!otherTile.src.includes("3.jpg")) {
-//   //   return;
-//   // }
-//   //
-//   // let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
-//   // let r = parseInt(currCoords[0]);
-//   // let c = parseInt(currCoords[1]);
-//   //
-//   // let otherCoords = otherTile.id.split("-");
-//   // let r2 = parseInt(otherCoords[0]);
-//   // let c2 = parseInt(otherCoords[1]);
-//   //
-//   // let moveLeft = r == r2 && c2 == c-1;
-//   // let moveRight = r == r2 && c2 == c+1;
-//   //
-//   // let moveUp = c == c2 && r2 == r-1;
-//   // let moveDown = c == c2 && r2 == r+1;
-//   //
-//   // let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
-//   //
-//   // if (isAdjacent) {
-//   //   let currImg = currTile.src;
-//   //   let otherImg = otherTile.src;
-//   //
-//   //   currTile.src = otherImg;
-//   //   otherTile.src = currImg;
-//   //
-//   //   turns += 1;
-//   //   document.getElementById("turns").innerText = turns;
-//   // }
-//   //
-//
-// }
+// // let matrixFromStore = localStorage.getItem('matrix')
+// // if (matrixFromStore) {
+// //   setPositionItems(JSON.parse(matrixFromStore));
+// // }
+
+
+
+
 
 
