@@ -19,7 +19,7 @@ let html = `
         <p class="text">Other size:</p>
         <div class="size-container">
           <a class="size" id="size3x3" href="#">3x3</a>
-          <a class="size active" id="size4x4" href="#">4x4</a>
+          <a class="size" id="size4x4" href="#">4x4</a>
           <a class="size" id="size5x5" href="#">5x5</a>
           <a class="size" id="size6x6" href="#">6x6</a>
           <a class="size" id="size7x7" href="#">7x7</a>
@@ -40,20 +40,27 @@ document.querySelector('#sound').addEventListener('click', function () {
   document.querySelector('#sound').classList.toggle("sound-on");
 })
 
-// The number of moves
-let step = 0;
+const countItemsFromStorage = localStorage.getItem("countItems");
+let countItems = countItemsFromStorage ? Number(countItemsFromStorage) : 16;
+let sizeGameArr = [];
+let winFlatArr = [];
 
 // The game duration in minutes and seconds
-let seconds = 0;
-let minutes = 0;
+const secondsFromStorage = localStorage.getItem(`matrix_${countItems}_seconds`);
+const minutesFromStorage = localStorage.getItem(`matrix_${countItems}_minutes`);
+let seconds = secondsFromStorage ? Number(secondsFromStorage) : 0;
+let minutes = minutesFromStorage ? Number(minutesFromStorage) : 0;
 let secondsContainer = document.querySelector(".seconds-container");
 let minutesContainer = document.querySelector(".minutes-container");
+secondsContainer.innerHTML = `${seconds}`;
+minutesContainer.innerHTML = `${minutes}`;
 let interval;
 let flag = true;
 
-let countItems = 16;
-let sizeGameArr = [];
-let winFlatArr = [];
+// The number of moves
+const stepFromStorage = localStorage.getItem(`matrix_${countItems}_step`);
+let step = stepFromStorage ? Number(stepFromStorage) : 0;
+document.querySelector('.moves').innerHTML = `${step}`;
 
 let items = [];
 let matrix = [];
@@ -68,11 +75,18 @@ function getGame() {
   let gameBlock = body.querySelector('.game-block');
   let gameBlockContent = '';
   for (let i = 0; i < sizeGameArr.length; i++) {
-    gameBlockContent += `<button class="item size4x4" draggable="true">${sizeGameArr[i]}</button>`
+    gameBlockContent += `<button class="item size${Math.sqrt(countItems)}x${Math.sqrt(countItems)}" draggable="true">${sizeGameArr[i]}</button>`
   }
   gameBlock.innerHTML = gameBlockContent;
 
   items = Array.from(gameBlock.querySelectorAll('.item'));
+}
+
+let sizeButtons = document.querySelectorAll('.size');
+for (let sizeButton of sizeButtons) {
+  if (sizeButton.id === `size${Math.sqrt(countItems)}x${Math.sqrt(countItems)}`) {
+    sizeButton.classList.add('active');
+  }
 }
 
 // 1. Choice of sizes
@@ -137,7 +151,10 @@ function size(event, countItems) {
   changePosition();
   zeroing();
   //Для быстрой проверки сохранения результатов комментировать тут!
-  shuffle();
+  if (!localStorage.getItem(`matrix_${countItems}`)) {
+    shuffle();
+  }
+  localStorage.setItem("countItems", countItems);
 }
 
 // 2. Position of elements
@@ -148,13 +165,10 @@ function position() {
   matrix = getMatrix (
     items.map((item) => Number(item.innerHTML)), Math.sqrt(countItems)
   )
+
+  let matrixFromStore = localStorage.getItem(`matrix_${countItems}`)
+  matrix = matrixFromStore ? JSON.parse(matrixFromStore) : matrix;
   setPositionItems(matrix);
-  // let matrixFromStore = localStorage.getItem('matrix')
-  // if (matrixFromStore) {
-  //   setPositionItems(JSON.parse(matrixFromStore));
-  // } else {
-  //   setPositionItems(matrix);
-  // }
 }
 
 // 3. Shuffle of elements
@@ -164,17 +178,23 @@ shuffleButton.addEventListener('click', function() {
   zeroing();
 })
 
-// document.querySelector('#save').addEventListener('click', function () {
-//   localStorage.setItem('matrix', JSON.stringify(matrix));
-//   console.log(JSON.parse(localStorage.getItem('matrix')));
-// })
-//
-// let matrixFromStore = localStorage.getItem('matrix')
-// if (!matrixFromStore) {
-//   shuffle();
-// }
+// Save matrix, step, seconds, minutes in localStorage
+document.querySelector('#save').addEventListener('click', function () {
+  localStorage.setItem(`matrix_${countItems}`, JSON.stringify(matrix));
 
-shuffle();
+  localStorage.setItem(`matrix_${countItems}_step`, step);
+
+  localStorage.setItem(`matrix_${countItems}_seconds`, seconds);
+  localStorage.setItem(`matrix_${countItems}_minutes`, minutes);
+
+  clearInterval(interval);
+  flag = true;
+})
+
+if (!localStorage.getItem(`matrix_${countItems}`)) {
+  shuffle();
+}
+
 function shuffle() {
   let flatMatrix = matrix.flat();
   const shuffledArray = shuffleArray(flatMatrix);
@@ -327,6 +347,12 @@ function swap(coords1, coords2, matrix) {
       }
       alert(`Hooray! You solved the puzzle in ${minutes}:${seconds} and ${step} moves!`);
 
+
+      localStorage.removeItem(`matrix_${countItems}`);
+      localStorage.removeItem(`matrix_${countItems}_step`);
+      localStorage.removeItem(`matrix_${countItems}_seconds`);
+      localStorage.removeItem(`matrix_${countItems}_minutes`);
+
       //Save top 10 results in localStorage
       let storedResults = localStorage.getItem(`results${countItems}`);
       let results = storedResults ? JSON.parse(storedResults) : [];
@@ -379,12 +405,15 @@ function clockTimer() {
 }
 
 function zeroing() {
-  step = 0;
+  let stepFromStorage = localStorage.getItem(`matrix_${countItems}_step`);
+  step = stepFromStorage ? Number(stepFromStorage) : 0;
   document.querySelector('.moves').innerHTML = `${step}`;
   flag = true;
   clearInterval(interval);
-  seconds = 0;
-  minutes = 0;
+  let secondsFromStorage = localStorage.getItem(`matrix_${countItems}_seconds`);
+  let minutesFromStorage = localStorage.getItem(`matrix_${countItems}_minutes`);
+  seconds = secondsFromStorage ? Number(secondsFromStorage) : 0;
+  minutes = minutesFromStorage ? Number(minutesFromStorage) : 0;
   secondsContainer.innerHTML = `0${seconds}`;
   minutesContainer.innerHTML = `0${minutes}`;
 }
