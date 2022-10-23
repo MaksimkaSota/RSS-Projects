@@ -136,7 +136,7 @@ function size(event, countItems) {
   position();
   changePosition();
   zeroing();
-  //Для быстрой проверки комментировать тут!
+  //Для быстрой проверки сохранения результатов комментировать тут!
   shuffle();
 }
 
@@ -149,25 +149,28 @@ function position() {
     items.map((item) => Number(item.innerHTML)), Math.sqrt(countItems)
   )
   setPositionItems(matrix);
+  // let matrixFromStore = localStorage.getItem('matrix')
+  // if (matrixFromStore) {
+  //   setPositionItems(JSON.parse(matrixFromStore));
+  // } else {
+  //   setPositionItems(matrix);
+  // }
 }
 
 // 3. Shuffle of elements
 let shuffleButton = document.querySelector('#shuffle');
 shuffleButton.addEventListener('click', function() {
-  shuffle()
+  shuffle();
   zeroing();
 })
 
 // document.querySelector('#save').addEventListener('click', function () {
 //   localStorage.setItem('matrix', JSON.stringify(matrix));
-//   // console.log(JSON.parse(localStorage.getItem('matrix')));
-//   localStorage.clear()
+//   console.log(JSON.parse(localStorage.getItem('matrix')));
 // })
-
+//
 // let matrixFromStore = localStorage.getItem('matrix')
-// if (matrixFromStore) {
-//   setPositionItems(JSON.parse(matrixFromStore));
-// } else {
+// if (!matrixFromStore) {
 //   shuffle();
 // }
 
@@ -179,7 +182,7 @@ function shuffle() {
   setPositionItems(matrix);
 }
 
-//4. Change position by click
+//4. Change position by click and Drag/Drop
 let blankButton;
 changePosition();
 function changePosition() {
@@ -191,11 +194,9 @@ function changePosition() {
         return;
       }
       let buttonNumber = Number(button.innerHTML);
-      console.log(matrix);
       let buttonCoords = findCoordinatesByNumber(buttonNumber, matrix);
       let blankCoords = findCoordinatesByNumber(blankNumber, matrix);
       let isValid = isValidForSwap(buttonCoords, blankCoords);
-
 
       if (isValid) {
         swap(blankCoords, buttonCoords, matrix);
@@ -449,17 +450,6 @@ document.querySelector("#result").addEventListener('click', function () {
     alert('There are no best scores! Play the game to get to the top!');
   }
 })
-
-
-// document.querySelector('#save').addEventListener('click', function () {
-//   localStorage.setItem('matrix', JSON.stringify(matrix));
-// })
-//
-//
-// // let matrixFromStore = localStorage.getItem('matrix')
-// // if (matrixFromStore) {
-// //   setPositionItems(JSON.parse(matrixFromStore));
-// // }
 
 
 
