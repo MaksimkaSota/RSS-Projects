@@ -52,8 +52,21 @@ let seconds = secondsFromStorage ? Number(secondsFromStorage) : 0;
 let minutes = minutesFromStorage ? Number(minutesFromStorage) : 0;
 let secondsContainer = document.querySelector(".seconds-container");
 let minutesContainer = document.querySelector(".minutes-container");
-secondsContainer.innerHTML = `${seconds}`;
-minutesContainer.innerHTML = `${minutes}`;
+if (seconds < 10) {
+  secondsContainer.innerHTML = `0${seconds}`;
+}
+if (seconds >= 10) {
+  secondsContainer.innerHTML = `${seconds}`;
+}
+if (seconds >= 60) {
+  minutes++;
+  minutesContainer.innerHTML = `0${minutes}`;
+  seconds = 0;
+  secondsContainer.innerHTML = `00`;
+}
+if (minutes > 9) {
+  minutesContainer.innerHTML = `${minutes}`;
+}
 let interval;
 let flag = true;
 
@@ -150,7 +163,6 @@ function size(event, countItems) {
   position();
   changePosition();
   zeroing();
-  //Для быстрой проверки сохранения результатов комментировать тут!
   if (!localStorage.getItem(`matrix_${countItems}`)) {
     shuffle();
   }
@@ -346,7 +358,6 @@ function swap(coords1, coords2, matrix) {
         minutes = `0${minutes}`
       }
       alert(`Hooray! You solved the puzzle in ${minutes}:${seconds} and ${step} moves!`);
-
 
       localStorage.removeItem(`matrix_${countItems}`);
       localStorage.removeItem(`matrix_${countItems}_step`);
