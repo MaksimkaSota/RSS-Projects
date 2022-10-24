@@ -187,6 +187,9 @@ function position() {
 let shuffleButton = document.querySelector('#shuffle');
 shuffleButton.addEventListener('click', function() {
   shuffle();
+  localStorage.removeItem(`matrix_${countItems}_step`)
+  localStorage.removeItem(`matrix_${countItems}_seconds`)
+  localStorage.removeItem(`matrix_${countItems}_minutes`)
   zeroing();
 })
 
