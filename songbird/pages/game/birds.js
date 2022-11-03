@@ -1,0 +1,1 @@
+import birdsData from "./birds-data";
