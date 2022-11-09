@@ -1,0 +1,195 @@
+@use "../../../styles/global" as global;
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background: url("../../../assets/images/main.png") no-repeat bottom / contain;
+  .score-block {
+    @extend %general-block;
+    align-items: center;
+    .headline {
+      font-size: 3rem;
+      &:hover a {
+        color: global.$shadow-hover;
+        -webkit-text-stroke: .5px global.$content;
+      }
+    }
+    .score {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+  .category-birds-block {
+    @extend %general-block;
+    .category-birds {
+      @extend %buttons;
+      width: 15%;
+    }
+    .active {
+      background: global.$gradient;
+    }
+  }
+  .question-block {
+    @extend %general-block;
+    background: global.$shadow-background;
+    padding: 1.5%;
+    border-radius: 5px;
+    .question-image {
+      width: 15%;
+      display: block;
+      border-radius: 10px;
+    }
+    .audio-container-one {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 83%;
+      .title {
+        font-size: 2rem;
+        border-bottom: 1px solid global.$outline;
+        padding: 1% 0;
+        margin-bottom: 3%;
+      }
+    }
+  }
+  .main-content-block {
+    @extend %general-block;
+    .block-one {
+      width: 49%;
+      .choice-bird {
+        border-radius: 5px;
+        background: global.$shadow-background;
+        .bird {
+          padding: 15px;
+          font-weight: 300;
+          cursor: pointer;
+          &:not(:last-child) {
+            border-bottom: 1px solid global.$outline;
+          }
+          &:first-child {
+            border-radius: 5px 5px 0 0;
+          }
+          &:last-child {
+            border-radius: 0 0 5px 5px;
+          }
+          &:hover {
+            background: global.$shadow-hover;
+          }
+          .bird-btn {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 15px;
+            border-radius: 50%;
+            background: global.$outline;
+          }
+        }
+      }
+    }
+    .about-bird {
+      border-radius: 5px;
+      width: 49%;
+      padding: 15px;
+      background: global.$shadow-background;
+      .content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2%;
+        .content-image {
+          width: 30%;
+          display: block;
+          border-radius: 10px;
+        }
+        .description {
+          width: 68%;
+          .title {
+            font-size: 1.5rem;
+          }
+          .species {
+            border-top: 1px solid global.$outline;
+            border-bottom: 1px solid global.$outline;
+            padding: 2%;
+            margin: 5% 0;
+          }
+        }
+      }
+      .text {
+        text-align: justify;
+      }
+    }
+  }
+  .next-question {
+    @extend %buttons;
+    width: 30%;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  .active {
+    background: global.$gradient;
+  }
+}
+
+.audio-player {
+  height: 50px;
+  font-size: 0.9rem;
+  background: global.$shadow-hover;
+  display: grid;
+  grid-template-rows: 7px auto;
+  .timeline {
+    background: global.$content;
+    position: relative;
+    cursor: pointer;
+    .progress {
+      background: global.$gradient;
+      width: 0;
+      height: 100%;
+      transition: .3s;
+    }
+  }
+  .controls {
+    @extend %audio-flex-center;
+    justify-content: space-between;
+    padding: 0 30px;
+    .icon-pause::before,
+    .icon-play::before,
+    .icon-sound-on::before,
+    .icon-sound-off::before{
+      cursor: pointer;
+      @extend %audio-flex-center;
+      justify-content: center;
+    }
+    .time {
+      display: flex;
+      > * {
+        padding: 2px;
+      }
+    }
+    .volume-container {
+      position: relative;
+      z-index: 2;
+      .volume-slider {
+        cursor: pointer;
+        position: absolute;
+        left: -3px;
+        top: 0;
+        width: 0;
+        height: 15px;
+        background: global.$content;
+        transition: .3s;
+        .volume-percentage {
+          background: global.$gradient;
+          height: 100%;
+          width: 75%;
+          transition: .3s;
+        }
+      }
+      &:hover {
+        .volume-slider {
+          left: -123px;
+          width: 120px;
+        }
+      }
+    }
+  }
+}
+

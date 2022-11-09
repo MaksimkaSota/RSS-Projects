@@ -4,9 +4,82 @@
   <meta charset="UTF-8">
   <title>Song Bird</title>
   <link rel="icon" sizes="32x32" href="../../assets/images/songbird.ico"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../../styles/icons-font.css">
   <link rel="stylesheet" href="../../styles/general.css">
+  <link rel="stylesheet" href="styles/game.css">
 </head>
 <body>
+  <main class="container">
+    <section class="score-block">
+      <h1 class="headline">
+        <a href="../../pages/start/start.html">Song Bird</a>
+      </h1>
+      <p class="score">Score: 0</p>
+    </section>
+    <section class="category-birds-block">
+      <button class="category-birds active">Разминка</button>
+      <button class="category-birds">Воробьиные</button>
+      <button class="category-birds">Лесные птицы</button>
+      <button class="category-birds">Певчие птицы</button>
+      <button class="category-birds">Хищные птицы</button>
+      <button class="category-birds">Морские птицы</button>
+    </section>
+    <section class="question-block">
+      <img class="question-image" src="../../assets/images/question.png" alt="question image">
+      <div class="audio-container-one">
+        <p class="title">*******</p>
+      </div>
+    </section>
+    <section class="main-content-block">
+      <div class="block-one">
+        <ul class="choice-bird">
+          <li class="bird">
+            <span class="bird-btn"></span>
+            Ворон
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            Журавль
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            Ласточка
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            Козодой
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            Кукушка
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            Синица
+          </li>
+        </ul>
+      </div>
+      <div class="about-bird">
+        <div class="content">
+          <img class="content-image" src="../../assets/images/question.png" alt="bird">
+          <div class="description">
+            <p class="title">Журавль</p>
+            <p class="species">Grus grus</p>
+            <div class="audio-container-two"></div>
+          </div>
+        </div>
+        <p class="text">
+          Звуки, издаваемые журавлем, похожи на звонкие "кур-лы-кур-лы".
+          Журавли чаще всего поют дуэтом - одна птица начинает запев со слога
+          "кур", а вторая подхватывает "лы". Если птица поет одна, то она издает
+          только звук "кур".
+        </p>
+      </div>
+    </section>
+    <button class="next-question">Следующий вопрос</button>
+  </main>
+  <script src="audio.js"></script>
   <script type="module" src="birds.js"></script>
 </body>
 </html>

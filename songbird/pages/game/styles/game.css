@@ -1,0 +1,204 @@
+.container .score-block, .container .category-birds-block, .container .question-block, .container .main-content-block {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.audio-player .controls, .audio-player .controls .icon-pause::before,
+.audio-player .controls .icon-play::before,
+.audio-player .controls .icon-sound-on::before,
+.audio-player .controls .icon-sound-off::before {
+  display: flex;
+  align-items: center;
+}
+
+.container .category-birds-block .category-birds, .container .next-question {
+  display: block;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background: url("../../../assets/images/main.png") no-repeat bottom/contain;
+}
+.container .score-block {
+  align-items: center;
+}
+.container .score-block .headline {
+  font-size: 3rem;
+}
+.container .score-block .headline:hover a {
+  color: rgba(254, 186, 199, 0.7);
+  -webkit-text-stroke: 0.5px #ffffff;
+}
+.container .score-block .score {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.container .category-birds-block .category-birds {
+  width: 15%;
+}
+.container .category-birds-block .active {
+  background: linear-gradient(to right, #fda100, #fa4101);
+}
+.container .question-block {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.5%;
+  border-radius: 5px;
+}
+.container .question-block .question-image {
+  width: 15%;
+  display: block;
+  border-radius: 10px;
+}
+.container .question-block .audio-container-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 83%;
+}
+.container .question-block .audio-container-one .title {
+  font-size: 2rem;
+  border-bottom: 1px solid gray;
+  padding: 1% 0;
+  margin-bottom: 3%;
+}
+.container .main-content-block .block-one {
+  width: 49%;
+}
+.container .main-content-block .block-one .choice-bird {
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .main-content-block .block-one .choice-bird .bird {
+  padding: 15px;
+  font-weight: 300;
+  cursor: pointer;
+}
+.container .main-content-block .block-one .choice-bird .bird:not(:last-child) {
+  border-bottom: 1px solid gray;
+}
+.container .main-content-block .block-one .choice-bird .bird:first-child {
+  border-radius: 5px 5px 0 0;
+}
+.container .main-content-block .block-one .choice-bird .bird:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.container .main-content-block .block-one .choice-bird .bird:hover {
+  background: rgba(254, 186, 199, 0.7);
+}
+.container .main-content-block .block-one .choice-bird .bird .bird-btn {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background: gray;
+}
+.container .main-content-block .about-bird {
+  border-radius: 5px;
+  width: 49%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container .main-content-block .about-bird .content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+.container .main-content-block .about-bird .content .content-image {
+  width: 30%;
+  display: block;
+  border-radius: 10px;
+}
+.container .main-content-block .about-bird .content .description {
+  width: 68%;
+}
+.container .main-content-block .about-bird .content .description .title {
+  font-size: 1.5rem;
+}
+.container .main-content-block .about-bird .content .description .species {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 2%;
+  margin: 5% 0;
+}
+.container .main-content-block .about-bird .text {
+  text-align: justify;
+}
+.container .next-question {
+  width: 30%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.container .active {
+  background: linear-gradient(to right, #fda100, #fa4101);
+}
+
+.audio-player {
+  height: 50px;
+  font-size: 0.9rem;
+  background: rgba(254, 186, 199, 0.7);
+  display: grid;
+  grid-template-rows: 7px auto;
+}
+.audio-player .timeline {
+  background: #ffffff;
+  position: relative;
+  cursor: pointer;
+}
+.audio-player .timeline .progress {
+  background: linear-gradient(to right, #fda100, #fa4101);
+  width: 0;
+  height: 100%;
+  transition: 0.3s;
+}
+.audio-player .controls {
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.audio-player .controls .icon-pause::before,
+.audio-player .controls .icon-play::before,
+.audio-player .controls .icon-sound-on::before,
+.audio-player .controls .icon-sound-off::before {
+  cursor: pointer;
+  justify-content: center;
+}
+.audio-player .controls .time {
+  display: flex;
+}
+.audio-player .controls .time > * {
+  padding: 2px;
+}
+.audio-player .controls .volume-container {
+  position: relative;
+  z-index: 2;
+}
+.audio-player .controls .volume-container .volume-slider {
+  cursor: pointer;
+  position: absolute;
+  left: -3px;
+  top: 0;
+  width: 0;
+  height: 15px;
+  background: #ffffff;
+  transition: 0.3s;
+}
+.audio-player .controls .volume-container .volume-slider .volume-percentage {
+  background: linear-gradient(to right, #fda100, #fa4101);
+  height: 100%;
+  width: 75%;
+  transition: 0.3s;
+}
+.audio-player .controls .volume-container:hover .volume-slider {
+  left: -123px;
+  width: 120px;
+}
+
+/*# sourceMappingURL=game.css.map */

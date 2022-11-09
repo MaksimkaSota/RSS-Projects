@@ -19,64 +19,64 @@
 
 @keyframes flight {
   0% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   4% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   5% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   7% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   11% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   12% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   15% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   16% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   50% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   54% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   55% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   57% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   61% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   62% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   65% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   73% {
-    background-image: radial-gradient(circle 4vw at 58vw 7vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 58vw 7vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   78% {
-    background-image: radial-gradient(circle 4vw at 54vw 6.7vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 54vw 6.7vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   88% {
-    background-image: radial-gradient(circle 4vw at 59vw 6.1vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 59vw 6.1vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   95% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
   100% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);
   }
 }
 
