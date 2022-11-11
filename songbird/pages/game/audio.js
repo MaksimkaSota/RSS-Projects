@@ -101,6 +101,8 @@ function getAudio(audioContainer, song) {
 }
 
 export default getAudio;
+// export {getAudio as default};
+// export default перед функцией
 
 
 
