@@ -4,9 +4,15 @@ $shadow-hover: rgba(254, 186, 199, 0.7);
 $content: #ffffff;
 $outline: #808080ff;
 $gradient: linear-gradient(to right, #fda100, #fa4101);
+$stroke: #76546f;
 
 $false: #3f4674;
 $true: $gradient;
+
+%container {
+  width: 80%;
+  margin: 0 auto;
+}
 
 %general-block {
   display: flex;
@@ -27,4 +33,9 @@ $true: $gradient;
   border: none;
   color: $content;
   background: $shadow-background;
+}
+
+%front-view {
+  position: relative;
+  z-index: 1;
 }

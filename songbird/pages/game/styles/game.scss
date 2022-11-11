@@ -1,17 +1,23 @@
 @use "../../../styles/global" as global;
 
-.container {
-  width: 80%;
-  margin: 0 auto;
+body {
   background: url("../../../assets/images/main.png") no-repeat bottom / contain;
+}
+
+.container {
+  @extend %container;
   .score-block {
     @extend %general-block;
     align-items: center;
     .headline {
       font-size: 3rem;
-      &:hover a {
+      .link:hover {
         color: global.$shadow-hover;
-        -webkit-text-stroke: .5px global.$content;
+      }
+      .link:active {
+        background: global.$gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
     .score {
@@ -30,6 +36,7 @@
     }
   }
   .question-block {
+    //display: none;
     @extend %general-block;
     background: global.$shadow-background;
     padding: 1.5%;
@@ -53,6 +60,7 @@
     }
   }
   .main-content-block {
+    //display: none;
     @extend %general-block;
     .block-one {
       width: 49%;
@@ -119,6 +127,7 @@
     }
   }
   .next-question {
+    //display: none;
     @extend %buttons;
     width: 30%;
     margin: 0 auto;
@@ -126,6 +135,30 @@
   }
   .active {
     background: global.$gradient;
+  }
+  .victory-block {
+    display: none;
+    text-align: center;
+    background: global.$shadow-background;
+    padding: 1.5%;
+    border-radius: 5px;
+    .congratulation {
+      font-size: 5rem;
+      margin: 3.5% 0 0;
+    }
+    .text {
+      font-size: 2rem;
+      margin: 0 0 3.5%;
+      padding: 0 0 1.5%;
+      border-bottom: 1px solid global.$outline;
+    }
+    .again-btn {
+      @extend %buttons;
+      width: 50%;
+      background: global.$gradient;
+      margin: 0 auto;
+      cursor: pointer;
+    }
   }
 }
 

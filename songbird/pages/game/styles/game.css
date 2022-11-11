@@ -1,3 +1,8 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .container .score-block, .container .category-birds-block, .container .question-block, .container .main-content-block {
   display: flex;
   justify-content: space-between;
@@ -12,7 +17,7 @@
   align-items: center;
 }
 
-.container .category-birds-block .category-birds, .container .next-question {
+.container .category-birds-block .category-birds, .container .next-question, .container .victory-block .again-btn {
   display: block;
   font-size: 0.9rem;
   border-radius: 5px;
@@ -22,20 +27,23 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
+body {
   background: url("../../../assets/images/main.png") no-repeat bottom/contain;
 }
+
 .container .score-block {
   align-items: center;
 }
 .container .score-block .headline {
   font-size: 3rem;
 }
-.container .score-block .headline:hover a {
+.container .score-block .headline .link:hover {
   color: rgba(254, 186, 199, 0.7);
-  -webkit-text-stroke: 0.5px #ffffff;
+}
+.container .score-block .headline .link:active {
+  background: linear-gradient(to right, #fda100, #fa4101);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .container .score-block .score {
   font-size: 1.5rem;
@@ -139,6 +147,29 @@
 }
 .container .active {
   background: linear-gradient(to right, #fda100, #fa4101);
+}
+.container .victory-block {
+  display: none;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.5%;
+  border-radius: 5px;
+}
+.container .victory-block .congratulation {
+  font-size: 5rem;
+  margin: 3.5% 0 0;
+}
+.container .victory-block .text {
+  font-size: 2rem;
+  margin: 0 0 3.5%;
+  padding: 0 0 1.5%;
+  border-bottom: 1px solid gray;
+}
+.container .victory-block .again-btn {
+  width: 50%;
+  background: linear-gradient(to right, #fda100, #fa4101);
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 .audio-player {
