@@ -2,13 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Song Bird</title>
   <link rel="icon" sizes="32x32" href="../../assets/images/songbird.ico"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="../../styles/general.css">
   <link rel="stylesheet" href="styles/start.css">
 </head>
 <body>
-  <video class="background-video" src="../../assets/violin.mp4" autoplay muted loop preload="auto"></video>
-  <div class="background-animation"></div>
+  <div class="container">
+    <header class="header">
+      <button class="nav-btn active">
+        <a class="link start-link" href="#" title="Вы уже на главной">Главная</a>
+      </button>
+      <button class="nav-btn">
+        <a class="link game-link" href="../../pages/game/game.html">Играть</a>
+      </button>
+    </header>
+    <main class="main">
+      <p class="title">Song</p>
+      <video class="background-video" src="../../assets/violin.mp4" autoplay muted loop preload="auto"></video>
+      <p class="title">Bird</p>
+      <p class="about">
+        <span class="upper">Приложение-викторина</span><br>
+        для распозднования птиц по их голосам
+      </p>
+    </main>
+    <footer class="footer">
+      <a class="author" href="https://github.com/MaksimkaSota" target="_blank">MaksimkaSota</a>
+      <a class="rsschool-link" href="https://rs.school/js" target="_blank">
+        <img class="logo-rsschool" src="../../assets/images/rs_school_js.svg" alt="logo-rsschool">
+      </a>
+      <p class="year">2022</p>
+    </footer>
+  </div>
+  <div class="background-shadow"></div>
 </body>
 </html>

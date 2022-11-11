@@ -1,81 +1,242 @@
-.background-video {
-  width: 50%;
-  display: block;
-  margin: 0 auto;
+@use "../../../styles/global" as global;
+
+.container {
+  @extend %container;
   position: relative;
-  top: 5vw;
+  top: 0;
+  .header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2%;
+    .nav-btn {
+      @extend %buttons;
+      @extend %front-view;
+      background: global.$main-background;
+      width: 30%;
+      padding: 0;
+      .link {
+        display: block;
+        padding: 10px;
+      }
+      .start-link {
+        cursor: default;
+      }
+      &:first-child {
+        background: global.$gradient;
+      }
+      &:last-child:hover {
+        background: global.$shadow-hover;
+      }
+      &:last-child:active {
+        background: global.$gradient;
+      }
+    }
+  }
+  .main {
+    @extend %general-block;
+    justify-content: center;
+    position: relative;
+    .background-video {
+      width: 60%;
+      display: block;
+      background: global.$main-background;
+    }
+    .title {
+      @extend %front-view;
+      text-align: center;
+      font-size: 5rem;
+      font-weight: 700;
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+    }
+    .about {
+      width: 60%;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 300;
+      position: absolute;
+      z-index: 1;
+      top: 65%;
+      .upper {
+        text-transform: uppercase;
+      }
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .author {
+      @extend %front-view;
+      display: block;
+      font-size: 1.3rem;
+      color: global.$main-background;
+      &:hover {
+        color: global.$shadow-hover;
+      }
+      &:active {
+        background: global.$gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    .rsschool-link {
+      @extend %front-view;
+      display: block;
+      width: 7vw;
+      margin: 0 3%;
+      padding: 5px;
+      border-radius: 5px;
+      background: global.$main-background;
+      &:hover {
+        background: global.$shadow-hover;
+      }
+      &:active {
+        background: global.$gradient;
+      }
+      .logo-rsschool {
+        display: block;
+      }
+    }
+    .year {
+      @extend %front-view;
+      font-size: 1.3rem;
+    }
+  }
 }
 
-.background-animation {
+.background-shadow {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
-  animation-name: flight;
-  animation-duration: 12.8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  background-image: radial-gradient(circle 7vw at 56vw 12.5vw, transparent 100%, global.$shadow-background 100%);
 }
 
-@keyframes flight {
-  0% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+@media (max-width: 1280px) {
+  .container {
+    .main {
+      .title {
+        font-size: 4rem;
+      }
+      .about {
+        font-size: 1.3rem;
+      }
+    }
   }
-  4% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+@media (max-width: 1000px) {
+  .container {
+    .main {
+      .background-video {
+        width: 80%;
+      }
+    }
   }
-  5% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .background-shadow {
+    background-image: radial-gradient(circle 7.5vw at 58vw 14vw, transparent 100%, global.$shadow-background 100%);
   }
-  7% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+@media (max-width: 768px) {
+  .container {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 3%;
+      .nav-btn {
+        width: 50%;
+        &:first-child {
+          margin-bottom: 2%;
+        }
+      }
+    }
+    .main {
+      .title {
+        font-size: 3.5rem;
+      }
+      .about {
+        font-size: 1.1rem;
+      }
+    }
+    .footer {
+      .rsschool-link {
+        width: 10vw;
+      }
+    }
   }
-  11% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .background-shadow {
+    background-image: radial-gradient(circle 8vw at 58vw 24vw, transparent 100%, global.$shadow-background 100%);
   }
-  12% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+@media (max-width: 620px) {
+  .container {
+    .main {
+      .about {
+        font-size: .9rem;
+      }
+    }
   }
-  15% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .background-shadow {
+    background-image: radial-gradient(circle 8vw at 58vw 26vw, transparent 100%, global.$shadow-background 100%);
   }
-  16% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+@media (max-width: 540px) {
+  html, body {
+    font-size: 14px;
   }
-  50% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .container {
+    .header {
+      padding: 4%;
+    }
+    .footer {
+      .rsschool-link {
+        width: 15vw;
+      }
+    }
   }
-  54% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .background-shadow {
+    background-image: radial-gradient(circle 8.5vw at 58vw 29vw, transparent 100%, global.$shadow-background 100%);
   }
-  55% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+@media (max-width: 470px) {
+  html, body {
+    font-size: 12px;
   }
-  57% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .container {
+    .header {
+      padding: 5%;
+      .nav-btn {
+        .link {
+          padding: 7px;
+        }
+      }
+    }
   }
-  61% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .background-shadow {
+    background-image: radial-gradient(circle 8.5vw at 58vw 27vw, transparent 100%, global.$shadow-background 100%);
   }
-  62% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+@media (max-width: 420px) {
+  .background-shadow {
+    background-image: radial-gradient(circle 9vw at 58vw 31vw, transparent 100%, global.$shadow-background 100%);
   }
-  65% {
-    background-image: radial-gradient(circle 4vw at 52.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+@media (max-width: 360px) {
+  .container {
+    .main {
+      .title {
+        font-size: 2.1rem;
+      }
+    }
   }
-  73% {
-    background-image: radial-gradient(circle 4vw at 58vw 7vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
-  }
-  78% {
-    background-image: radial-gradient(circle 4vw at 54vw 6.7vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
-  }
-  88% {
-    background-image: radial-gradient(circle 4vw at 59vw 6.1vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
-  }
-  95% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
-  }
-  100% {
-    background-image: radial-gradient(circle 4vw at 53.4vw 11.5vw, transparent 100%, rgba(0, 0, 0, 0.5) 100%);
+  .background-shadow {
+    background-image: radial-gradient(circle 9vw at 58vw 33vw, transparent 100%, global.$shadow-background 100%);
   }
 }
