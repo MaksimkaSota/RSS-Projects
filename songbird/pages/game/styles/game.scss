@@ -325,6 +325,14 @@ body {
     .next-question {
       width: 50%;
     }
+    .victory-block {
+      .congratulation {
+        font-size: 3rem;
+      }
+      .text {
+        font-size: 1rem;
+      }
+    }
   }
   .audio-player {
     .controls {
@@ -367,6 +375,11 @@ body {
     }
     .next-question {
       width: 100%;
+    }
+    .victory-block {
+      .again-btn {
+        width: 100%;
+      }
     }
   }
   .audio-player {
