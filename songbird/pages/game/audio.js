@@ -1,5 +1,5 @@
 function getAudio(audioContainer, song) {
-  audioContainer.innerHTML += `
+  audioContainer.innerHTML = `
     <div class="audio-player">
       <div class="timeline">
         <div class="progress"></div>
@@ -24,10 +24,15 @@ function getAudio(audioContainer, song) {
         </div>
       </div>
     </div>
+    <audio id="main-audio" src=""></audio>
   `;
 
   const audioPlayer = audioContainer.querySelector(".audio-player");
-  const audio = new Audio(song);
+  const className = audioContainer.classList;
+  const audio = document.querySelector(`.${className} #main-audio`);
+  audio.src = song;
+  // const audio = new Audio(song);
+
 
   audio.addEventListener("loadeddata", function()  {
     audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(audio.duration);
@@ -72,6 +77,16 @@ function getAudio(audioContainer, song) {
       audio.pause();
     }
   });
+
+  // const birdsNode = document.querySelectorAll('.bird');
+  // console.log(birdsNode);
+  // for (let birdNode of birdsNode) {
+  //   node.addEventListener('click', function() {
+  //     audio.load();
+  //     console.log('cldjfh')
+  //   })
+
+    // }
 
   audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
     const volumeEl = audioPlayer.querySelector(".volume-container .volume");
