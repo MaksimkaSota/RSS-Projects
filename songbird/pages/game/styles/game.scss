@@ -46,7 +46,7 @@ body {
       display: block;
       border-radius: 10px;
     }
-    .audio-container-one {
+    .question-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -90,6 +90,12 @@ body {
             margin-right: 15px;
             border-radius: 50%;
             background: global.$outline;
+          }
+          .bird-btn-true {
+            background: global.$true;
+          }
+          .bird-btn-false {
+            background: global.$false;
           }
         }
       }
@@ -246,7 +252,7 @@ body {
       .question-image {
         width: 20%;
       }
-      .audio-container-one {
+      .question-content {
         width: 78%;
       }
     }
@@ -289,7 +295,7 @@ body {
       .question-image {
         width: 30%;
       }
-      .audio-container-one {
+      .question-content {
         width: 68%;
         .title {
           margin-bottom: 5%;
@@ -351,7 +357,7 @@ body {
       .question-image {
         width: 40%;
       }
-      .audio-container-one {
+      .question-content {
         width: 58%;
         .title {
           margin-bottom: 7%;
@@ -400,7 +406,7 @@ body {
         width: 50%;
         margin: 0 auto 1%;
       }
-      .audio-container-one {
+      .question-content {
         width: 100%;
         .title {
           margin-bottom: 5%;

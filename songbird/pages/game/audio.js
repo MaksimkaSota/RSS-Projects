@@ -31,8 +31,6 @@ function getAudio(audioContainer, song) {
   const className = audioContainer.classList;
   const audio = document.querySelector(`.${className} #main-audio`);
   audio.src = song;
-  // const audio = new Audio(song);
-
 
   audio.addEventListener("loadeddata", function()  {
     audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(audio.duration);

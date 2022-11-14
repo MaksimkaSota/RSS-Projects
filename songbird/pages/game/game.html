@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Song Bird</title>
   <link rel="icon" sizes="32x32" href="../../assets/images/songbird.ico"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="../../styles/icons-font.css">
   <link rel="stylesheet" href="../../styles/general.css">
   <link rel="stylesheet" href="styles/game.css">
@@ -27,9 +28,13 @@
       <button class="category-birds">Морские птицы</button>
     </section>
     <section class="question-block">
-      <img class="question-image" src="../../assets/images/question.png" alt="question image">
-      <div class="audio-container-one">
-        <p class="title">*******</p>
+      <img class="question-image"
+           id="question-image"
+           src="../../assets/images/question.png"
+           alt="question image">
+      <div class="question-content">
+        <p class="title" id="question-title">*******</p>
+        <div class="audio-container-one"></div>
       </div>
     </section>
     <section class="main-content-block">
@@ -63,7 +68,10 @@
       </div>
       <div class="about-bird">
         <div class="content">
-          <img class="content-image" id="answer-image" src="../../assets/images/question.png" alt="bird">
+          <img class="content-image"
+               id="answer-image"
+               src="../../assets/images/question.png"
+               alt="bird">
           <div class="description">
             <p class="title" id="answer-title">Журавль</p>
             <p class="species" id="answer-species">Grus grus</p>
@@ -78,7 +86,7 @@
         </p>
       </div>
     </section>
-    <button class="next-question">Следующий вопрос</button>
+    <button class="next-question" id="next-btn" disabled>Следующий вопрос</button>
     <section class="victory-block">
       <p class="congratulation">Поздравляем!</p>
       <p class="text">
@@ -86,9 +94,11 @@
         <span id="score">13</span>
         из 30 возможных баллов!
       </p>
-      <button class="again-btn">Попробовать еще раз</button>
+      <button class="again-btn" disabled>Попробовать еще раз</button>
     </section>
   </main>
+  <audio id="true-audio" src="../../assets/audios/true.mp3"></audio>
+  <audio id="false-audio" src="../../assets/audios/false.mp3"></audio>
   <script type="module" src="birds.js"></script>
 </body>
 </html>
