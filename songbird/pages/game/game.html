@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Song Bird</title>
   <link rel="icon" sizes="32x32" href="../../assets/images/songbird.ico"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="../../styles/icons-font.css">
   <link rel="stylesheet" href="../../styles/general.css">
   <link rel="stylesheet" href="styles/game.css">
@@ -27,9 +28,13 @@
       <button class="category-birds">Морские птицы</button>
     </section>
     <section class="question-block">
-      <img class="question-image" src="../../assets/images/question.png" alt="question image">
-      <div class="audio-container-one">
-        <p class="title">*******</p>
+      <img class="question-image"
+           id="question-image"
+           src="../../assets/images/question.png"
+           alt="question image">
+      <div class="question-content">
+          <p class="title" id="question-title">*******</p>
+          <div class="audio-container-one"></div>
       </div>
     </section>
     <section class="main-content-block">
@@ -37,58 +42,61 @@
         <ul class="choice-bird">
           <li class="bird">
             <span class="bird-btn"></span>
-            Ворон
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            Журавль
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            Ласточка
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            Козодой
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            Кукушка
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            Синица
+            <span class="bird-txt"></span>
           </li>
         </ul>
       </div>
       <div class="about-bird">
-        <div class="content">
-          <img class="content-image" src="../../assets/images/question.png" alt="bird">
-          <div class="description">
-            <p class="title">Журавль</p>
-            <p class="species">Grus grus</p>
-            <div class="audio-container-two"></div>
-          </div>
+        <div class="preview">
+          <p class="text">Послушайте плеер.</p>
+          <p class="text">Выберете птицу из списка.</p>
         </div>
-        <p class="text">
-          Звуки, издаваемые журавлем, похожи на звонкие "кур-лы-кур-лы".
-          Журавли чаще всего поют дуэтом - одна птица начинает запев со слога
-          "кур", а вторая подхватывает "лы". Если птица поет одна, то она издает
-          только звук "кур".
-        </p>
+        <div id="about-bird" style="display: none">
+          <div class="content">
+            <img class="content-image" id="answer-image" alt="bird">
+            <div class="description">
+              <p class="title" id="answer-title"></p>
+              <p class="species" id="answer-species"></p>
+              <div class="audio-container-two"></div>
+            </div>
+          </div>
+          <p class="text" id="answer-text"></p>
+        </div>
       </div>
     </section>
-    <button class="next-question">Следующий вопрос</button>
-    <section class="victory-block">
+    <button class="next-question" id="next-btn" disabled>Следующий вопрос</button>
+    <section class="victory-block" style="display: none">
       <p class="congratulation">Поздравляем!</p>
       <p class="text">
         Вы прошли викторину и набрали
-        <span id="score">13</span>
+        <span id="finish-score"></span>
         из 30 возможных баллов!
       </p>
-      <button class="again-btn">Попробовать еще раз</button>
+      <button class="again-btn" id="new-game-btn">Попробовать еще раз</button>
     </section>
   </main>
+  <audio id="true-audio" src="../../assets/audios/true.mp3"></audio>
+  <audio id="false-audio" src="../../assets/audios/false.mp3"></audio>
   <script type="module" src="birds.js"></script>
 </body>
 </html>

@@ -36,7 +36,6 @@ body {
     }
   }
   .question-block {
-    //display: none;
     @extend %general-block;
     background: global.$shadow-background;
     padding: 1.5%;
@@ -46,7 +45,7 @@ body {
       display: block;
       border-radius: 10px;
     }
-    .audio-container-one {
+    .question-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -60,7 +59,6 @@ body {
     }
   }
   .main-content-block {
-    //display: none;
     @extend %general-block;
     .block-one {
       width: 49%;
@@ -91,6 +89,12 @@ body {
             border-radius: 50%;
             background: global.$outline;
           }
+          .bird-btn-true {
+            background: global.$true;
+          }
+          .bird-btn-false {
+            background: global.$false;
+          }
         }
       }
     }
@@ -99,6 +103,11 @@ body {
       width: 49%;
       padding: 1.5%;
       background: global.$shadow-background;
+      .preview {
+        .text:not(:last-child) {
+          margin-bottom: 2%;
+        }
+      }
       .content {
         display: flex;
         justify-content: space-between;
@@ -127,7 +136,6 @@ body {
     }
   }
   .next-question {
-    //display: none;
     @extend %buttons;
     width: 30%;
     margin: 0 auto;
@@ -137,7 +145,6 @@ body {
     background: global.$gradient;
   }
   .victory-block {
-    display: none;
     text-align: center;
     background: global.$shadow-background;
     padding: 1.5%;
@@ -246,7 +253,7 @@ body {
       .question-image {
         width: 20%;
       }
-      .audio-container-one {
+      .question-content {
         width: 78%;
       }
     }
@@ -289,7 +296,7 @@ body {
       .question-image {
         width: 30%;
       }
-      .audio-container-one {
+      .question-content {
         width: 68%;
         .title {
           margin-bottom: 5%;
@@ -351,7 +358,7 @@ body {
       .question-image {
         width: 40%;
       }
-      .audio-container-one {
+      .question-content {
         width: 58%;
         .title {
           margin-bottom: 7%;
@@ -400,7 +407,7 @@ body {
         width: 50%;
         margin: 0 auto 1%;
       }
-      .audio-container-one {
+      .question-content {
         width: 100%;
         .title {
           margin-bottom: 5%;

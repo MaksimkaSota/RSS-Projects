@@ -65,13 +65,13 @@ body {
   display: block;
   border-radius: 10px;
 }
-.container .question-block .audio-container-one {
+.container .question-block .question-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 83%;
 }
-.container .question-block .audio-container-one .title {
+.container .question-block .question-content .title {
   font-size: 2rem;
   border-bottom: 1px solid gray;
   padding: 1% 0;
@@ -109,11 +109,20 @@ body {
   border-radius: 50%;
   background: gray;
 }
+.container .main-content-block .block-one .choice-bird .bird .bird-btn-true {
+  background: linear-gradient(to right, #fda100, #fa4101);
+}
+.container .main-content-block .block-one .choice-bird .bird .bird-btn-false {
+  background: #3f4674;
+}
 .container .main-content-block .about-bird {
   border-radius: 5px;
   width: 49%;
   padding: 1.5%;
   background: rgba(0, 0, 0, 0.7);
+}
+.container .main-content-block .about-bird .preview .text:not(:last-child) {
+  margin-bottom: 2%;
 }
 .container .main-content-block .about-bird .content {
   display: flex;
@@ -149,7 +158,6 @@ body {
   background: linear-gradient(to right, #fda100, #fa4101);
 }
 .container .victory-block {
-  display: none;
   text-align: center;
   background: rgba(0, 0, 0, 0.7);
   padding: 1.5%;
@@ -248,7 +256,7 @@ body {
   .container .question-block .question-image {
     width: 20%;
   }
-  .container .question-block .audio-container-one {
+  .container .question-block .question-content {
     width: 78%;
   }
   .container .main-content-block .about-bird .content {
@@ -284,10 +292,10 @@ body {
   .container .question-block .question-image {
     width: 30%;
   }
-  .container .question-block .audio-container-one {
+  .container .question-block .question-content {
     width: 68%;
   }
-  .container .question-block .audio-container-one .title {
+  .container .question-block .question-content .title {
     margin-bottom: 5%;
   }
   .container .main-content-block {
@@ -337,10 +345,10 @@ body {
   .container .question-block .question-image {
     width: 40%;
   }
-  .container .question-block .audio-container-one {
+  .container .question-block .question-content {
     width: 58%;
   }
-  .container .question-block .audio-container-one .title {
+  .container .question-block .question-content .title {
     margin-bottom: 7%;
   }
   .container .main-content-block .about-bird .content {
@@ -375,10 +383,10 @@ body {
     width: 50%;
     margin: 0 auto 1%;
   }
-  .container .question-block .audio-container-one {
+  .container .question-block .question-content {
     width: 100%;
   }
-  .container .question-block .audio-container-one .title {
+  .container .question-block .question-content .title {
     margin-bottom: 5%;
   }
   .container .main-content-block .about-bird .content .content-image {
