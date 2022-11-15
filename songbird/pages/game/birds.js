@@ -15,21 +15,43 @@ for (let birds of birdsData) {
   questionsArray.push(array);
 }
 
+const score = document.querySelector('.score');
+const finishScore = document.querySelector('#finish-score');
+
 const audioPlayerQuestionNode = document.querySelector('.audio-container-one');
 const audioPlayerAnswerNode = document.querySelector('.audio-container-two');
+const trueAudio = document.querySelector('#true-audio');
+const falseAudio = document.querySelector('#false-audio');
+
+const categoryBirds = document.querySelectorAll('.category-birds');
 
 const questionImage = document.querySelector('#question-image');
 const questionTitle = document.querySelector('#question-title');
-console.log(questionTitle);
 
+const birdsNode = document.querySelectorAll('.bird');
+const birdsTxtNode = document.querySelectorAll('.bird-txt');
+const birdsBtnNode = document.querySelectorAll('.bird-btn');
+
+const previewAboutBird = document.querySelector('.preview');
+const aboutBird = document.querySelector('#about-bird');
 const answerImage = document.querySelector('#answer-image');
 const answerTitle = document.querySelector('#answer-title');
 const answerSpecies = document.querySelector('#answer-species');
 const answerText = document.querySelector('#answer-text');
 
+const questionBlock = document.querySelector('.question-block');
+const choiceBirdBlock = document.querySelector('.block-one');
+const aboutBirdBlock = document.querySelector('.about-bird');
+const victoryBlock = document.querySelector('.victory-block');
+
 const nextBtn = document.querySelector('#next-btn');
+const newGameBtn = document.querySelector('#new-game-btn');
 
 let mainCounter = 0;
+let scoreCounter = 0;
+let helpScoreCounter = 5;
+let isWin = false;
+let firstClick = true;
 
 function showQuestion() {
   questionsArray.forEach(question => {
@@ -39,11 +61,6 @@ function showQuestion() {
 }
 showQuestion();
 
-
-const birdsNode = document.querySelectorAll('.bird');
-const birdsTxtNode = document.querySelectorAll('.bird-txt');
-const birdsBtnNode = document.querySelectorAll('.bird-btn');
-
 function showAnswerOptions() {
   for (let i = 0; i < birdsTxtNode.length; i++) {
     birdsTxtNode[i].textContent = birdsData[mainCounter][i].name;
@@ -52,11 +69,6 @@ function showAnswerOptions() {
 }
 showAnswerOptions();
 
-let trueAudio = document.querySelector('#true-audio');
-let falseAudio = document.querySelector('#false-audio');
-
-let isWin = false;
-let firstClick = true;
 function showAnswer() {
   for (let i = 0; i < birdsNode.length; i++) {
     birdsNode[i].addEventListener('click', function() {
@@ -76,6 +88,9 @@ function showAnswer() {
       if (birdsData[mainCounter][i].id === questionsArray[mainCounter][0].id) {
         isWin = true;
         if (firstClick) {
+          scoreCounter += helpScoreCounter;
+          aboutBird.style = 'display: block';
+          previewAboutBird.style = 'display: none';
           questionImage.src = birdsData[mainCounter][i].image;
           questionTitle.textContent = birdsData[mainCounter][i].name;
           nextBtn.classList.add('active');
@@ -87,29 +102,77 @@ function showAnswer() {
         firstClick = false;
       } else {
         if (!isWin) {
-          falseAudio.load();
-          falseAudio.play();
+          aboutBird.style = 'display: block';
+          previewAboutBird.style = 'display: none';
+          if (birdsBtnNode[i].className !== 'bird-btn bird-btn-false') {
+            falseAudio.load();
+            falseAudio.play();
+            helpScoreCounter--;
+          }
           birdsBtnNode[i].classList.add('bird-btn-false');
         }
       }
+
+      score.textContent = `Score: ${scoreCounter}`
     })
   }
 }
 showAnswer();
 
-function zeroingAndShowNext() {
+function showNext() {
   mainCounter++;
+  helpScoreCounter = 5;
+  if (mainCounter === 6) {
+    questionBlock.style = 'display: none';
+    choiceBirdBlock.style = 'display: none';
+    aboutBirdBlock.style = 'display: none';
+    nextBtn.style ='display: none';
+    victoryBlock.style = 'display: block';
+    finishScore.textContent = `${scoreCounter}`;
+    mainCounter = 0;
+  } else {
+    categoryBirds[mainCounter].classList.add('active');
+    zeroing();
+    showQuestion();
+    showAnswerOptions();
+  }
+}
+
+function startNewGame() {
+  scoreCounter = 0;
+  questionBlock.style = 'display: flex';
+  choiceBirdBlock.style = 'display: block';
+  aboutBirdBlock.style = 'display: block';
+  nextBtn.style ='display: block';
+  victoryBlock.style = 'display: none';
+
+  for (let category of categoryBirds) {
+    category.classList.remove('active');
+  }
+  categoryBirds[mainCounter].classList.add('active');
+
+  zeroing();
+  showQuestion();
+  showAnswerOptions();
+}
+
+function zeroing() {
   firstClick = true;
   isWin = false;
 
-  nextBtn.classList.remove('active');
-  nextBtn.setAttribute("disabled", "true");
+  questionImage.src = '../../assets/images/question.png';
+  questionTitle.textContent = '*******';
+
   for (let birdBtn of birdsBtnNode) {
     birdBtn.classList.remove('bird-btn-true', 'bird-btn-false');
   }
-  showQuestion();
-  showAnswerOptions();
-  showAnswer();
+
+  aboutBird.style = 'display: none';
+  previewAboutBird.style = 'display: block';
+
+  nextBtn.classList.remove('active');
+  nextBtn.setAttribute("disabled", "true");
 }
 
-nextBtn.addEventListener('click', zeroingAndShowNext);
+nextBtn.addEventListener('click', showNext);
+newGameBtn.addEventListener('click', startNewGame)

@@ -121,6 +121,9 @@ body {
   padding: 1.5%;
   background: rgba(0, 0, 0, 0.7);
 }
+.container .main-content-block .about-bird .preview .text:not(:last-child) {
+  margin-bottom: 2%;
+}
 .container .main-content-block .about-bird .content {
   display: flex;
   justify-content: space-between;
@@ -155,7 +158,6 @@ body {
   background: linear-gradient(to right, #fda100, #fa4101);
 }
 .container .victory-block {
-  display: none;
   text-align: center;
   background: rgba(0, 0, 0, 0.7);
   padding: 1.5%;

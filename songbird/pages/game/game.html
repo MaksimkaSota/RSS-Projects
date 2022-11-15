@@ -33,8 +33,8 @@
            src="../../assets/images/question.png"
            alt="question image">
       <div class="question-content">
-        <p class="title" id="question-title">*******</p>
-        <div class="audio-container-one"></div>
+          <p class="title" id="question-title">*******</p>
+          <div class="audio-container-one"></div>
       </div>
     </section>
     <section class="main-content-block">
@@ -42,59 +42,57 @@
         <ul class="choice-bird">
           <li class="bird">
             <span class="bird-btn"></span>
-            <span class="bird-txt">Ворон</span>
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            <span class="bird-txt">Журавль</span>
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            <span class="bird-txt">Ласточка</span>
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            <span class="bird-txt">Козодой</span>
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            <span class="bird-txt">Кукушка</span>
+            <span class="bird-txt"></span>
           </li>
           <li class="bird">
             <span class="bird-btn"></span>
-            <span class="bird-txt">Синица</span>
+            <span class="bird-txt"></span>
           </li>
         </ul>
       </div>
       <div class="about-bird">
-        <div class="content">
-          <img class="content-image"
-               id="answer-image"
-               src="../../assets/images/question.png"
-               alt="bird">
-          <div class="description">
-            <p class="title" id="answer-title">Журавль</p>
-            <p class="species" id="answer-species">Grus grus</p>
-            <div class="audio-container-two"></div>
-          </div>
+        <div class="preview">
+          <p class="text">Послушайте плеер.</p>
+          <p class="text">Выберете птицу из списка.</p>
         </div>
-        <p class="text" id="answer-text">
-          Звуки, издаваемые журавлем, похожи на звонкие "кур-лы-кур-лы".
-          Журавли чаще всего поют дуэтом - одна птица начинает запев со слога
-          "кур", а вторая подхватывает "лы". Если птица поет одна, то она издает
-          только звук "кур".
-        </p>
+        <div id="about-bird" style="display: none">
+          <div class="content">
+            <img class="content-image" id="answer-image" alt="bird">
+            <div class="description">
+              <p class="title" id="answer-title"></p>
+              <p class="species" id="answer-species"></p>
+              <div class="audio-container-two"></div>
+            </div>
+          </div>
+          <p class="text" id="answer-text"></p>
+        </div>
       </div>
     </section>
     <button class="next-question" id="next-btn" disabled>Следующий вопрос</button>
-    <section class="victory-block">
+    <section class="victory-block" style="display: none">
       <p class="congratulation">Поздравляем!</p>
       <p class="text">
         Вы прошли викторину и набрали
-        <span id="score">13</span>
+        <span id="finish-score"></span>
         из 30 возможных баллов!
       </p>
-      <button class="again-btn" disabled>Попробовать еще раз</button>
+      <button class="again-btn" id="new-game-btn">Попробовать еще раз</button>
     </section>
   </main>
   <audio id="true-audio" src="../../assets/audios/true.mp3"></audio>

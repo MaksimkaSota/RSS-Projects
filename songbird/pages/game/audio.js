@@ -76,16 +76,6 @@ function getAudio(audioContainer, song) {
     }
   });
 
-  // const birdsNode = document.querySelectorAll('.bird');
-  // console.log(birdsNode);
-  // for (let birdNode of birdsNode) {
-  //   node.addEventListener('click', function() {
-  //     audio.load();
-  //     console.log('cldjfh')
-  //   })
-
-    // }
-
   audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
     const volumeEl = audioPlayer.querySelector(".volume-container .volume");
     audio.muted = !audio.muted;
@@ -114,8 +104,6 @@ function getAudio(audioContainer, song) {
 }
 
 export default getAudio;
-// export {getAudio as default};
-// export default перед функцией
 
 
 
