@@ -1,19 +1,9 @@
-import birdsData from "./birds-data.js";
-import getAudio from "./audio.js";
+import birdsDataRu from './birds-data-ru.js';
+import birdsDataEn from './bird-data-en.js';
+import {categoryBirdsDataRu, categoryBirdsDataEn} from './language-data.js'
+import getAudio from './audio.js';
 
-const questionsArray = [];
-
-for (let birds of birdsData) {
-  let array = [];
-  for (let bird of birds) {
-    let object = {
-      id: bird.id,
-      audio: bird.audio
-    }
-    array.push(object);
-  }
-  questionsArray.push(array);
-}
+let languageElems = document.querySelectorAll('[data-language-id]');
 
 const score = document.querySelector('.score');
 const finishScore = document.querySelector('#finish-score');
@@ -50,8 +40,59 @@ const newGameBtn = document.querySelector('#new-game-btn');
 let mainCounter = 0;
 let scoreCounter = 0;
 let helpScoreCounter = 5;
+let indexHelpLang = 0;
 let isWin = false;
 let firstClick = true;
+
+let birdsDataLang = birdsDataRu;
+
+const select = document.querySelector('select');
+select.addEventListener('change', function() {
+  if (select.value === 'ru') {
+    localStorage.setItem('birdsDataLang', 'ru');
+    birdsDataLang = birdsDataRu;
+    showAnswerOptions();
+    showAnswer();
+    nextBtn.addEventListener('click', showNext);
+    newGameBtn.addEventListener('click', startNewGame);
+    changeLanguage(categoryBirdsDataRu);
+  }
+  if (select.value === 'en') {
+    localStorage.setItem('birdsDataLang', 'en');
+    birdsDataLang = birdsDataEn;
+    showAnswerOptions();
+    showAnswer();
+    nextBtn.addEventListener('click', showNext);
+    newGameBtn.addEventListener('click', startNewGame);
+    changeLanguage(categoryBirdsDataEn);
+  }
+})
+
+const birdsDataLangStorage = localStorage.getItem("birdsDataLang");
+if (birdsDataLangStorage === 'ru') {
+  birdsDataLang = birdsDataRu;
+  select.selectedIndex = 0;
+  changeLanguage(categoryBirdsDataRu);
+}
+if (birdsDataLangStorage === 'en') {
+  birdsDataLang = birdsDataEn;
+  select.selectedIndex = 1;
+  changeLanguage(categoryBirdsDataEn);
+}
+
+const questionsArray = [];
+
+for (let birds of birdsDataLang) {
+  let array = [];
+  for (let bird of birds) {
+    let object = {
+      id: bird.id,
+      audio: bird.audio
+    }
+    array.push(object);
+  }
+  questionsArray.push(array);
+}
 
 function showQuestion() {
   questionsArray.forEach(question => {
@@ -63,15 +104,25 @@ showQuestion();
 
 function showAnswerOptions() {
   for (let i = 0; i < birdsTxtNode.length; i++) {
-    birdsTxtNode[i].textContent = birdsData[mainCounter][i].name;
-    getAudio(audioPlayerAnswerNode, birdsData[mainCounter][i].audio);
+    birdsTxtNode[i].textContent = birdsDataLang[mainCounter][i].name;
+    getAudio(audioPlayerAnswerNode, birdsDataLang[mainCounter][i].audio);
   }
 }
 showAnswerOptions();
 
 function showAnswer() {
+  answerImage.src = birdsDataLang[mainCounter][indexHelpLang].image;
+  answerTitle.textContent = birdsDataLang[mainCounter][indexHelpLang].name;
+  answerSpecies.textContent = birdsDataLang[mainCounter][indexHelpLang].species;
+  answerText.textContent = birdsDataLang[mainCounter][indexHelpLang].description;
+  if (isWin) {
+    questionImage.src = birdsDataLang[mainCounter][indexHelpLang].image;
+    questionTitle.textContent = birdsDataLang[mainCounter][indexHelpLang].name;
+  }
+  indexHelpLang = 0;
   for (let i = 0; i < birdsNode.length; i++) {
     birdsNode[i].addEventListener('click', function() {
+      indexHelpLang = i;
       const mainAudioQuestion = document.querySelector('.audio-container-one #main-audio');
       const playBtnQuestion = document.querySelector(".audio-container-one .toggle-play");
 
@@ -79,20 +130,20 @@ function showAnswer() {
       playBtnQuestion.classList.add("icon-play");
       mainAudioQuestion.pause();
 
-      answerImage.src = birdsData[mainCounter][i].image;
-      answerTitle.textContent = birdsData[mainCounter][i].name;
-      answerSpecies.textContent = birdsData[mainCounter][i].species;
-      answerText.textContent = birdsData[mainCounter][i].description;
-      getAudio(audioPlayerAnswerNode, birdsData[mainCounter][i].audio);
+      answerImage.src = birdsDataLang[mainCounter][i].image;
+      answerTitle.textContent = birdsDataLang[mainCounter][i].name;
+      answerSpecies.textContent = birdsDataLang[mainCounter][i].species;
+      answerText.textContent = birdsDataLang[mainCounter][i].description;
+      getAudio(audioPlayerAnswerNode, birdsDataLang[mainCounter][i].audio);
 
-      if (birdsData[mainCounter][i].id === questionsArray[mainCounter][0].id) {
+      if (birdsDataLang[mainCounter][i].id === questionsArray[mainCounter][0].id) {
         isWin = true;
         if (firstClick) {
           scoreCounter += helpScoreCounter;
           aboutBird.style = 'display: block';
           previewAboutBird.style = 'display: none';
-          questionImage.src = birdsData[mainCounter][i].image;
-          questionTitle.textContent = birdsData[mainCounter][i].name;
+          questionImage.src = birdsDataLang[mainCounter][i].image;
+          questionTitle.textContent = birdsDataLang[mainCounter][i].name;
           nextBtn.classList.add('active');
           nextBtn.removeAttribute("disabled");
           trueAudio.load();
@@ -120,6 +171,7 @@ function showAnswer() {
 showAnswer();
 
 function showNext() {
+  console.log("test")
   mainCounter++;
   helpScoreCounter = 5;
   if (mainCounter === 6) {
@@ -175,4 +227,15 @@ function zeroing() {
 }
 
 nextBtn.addEventListener('click', showNext);
-newGameBtn.addEventListener('click', startNewGame)
+newGameBtn.addEventListener('click', startNewGame);
+
+function changeLanguage(categoryBirdsData) {
+  for (let elem of languageElems) {
+    // for (let key in categoryBirdsData) {
+    //   if (elem.dataset.languageId === key) {
+    //     elem.textContent = categoryBirdsData[key];
+    //   }
+    // }
+    elem.textContent = categoryBirdsData[elem.dataset.languageId];
+  }
+}

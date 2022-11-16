@@ -32,6 +32,7 @@ body {
 }
 
 .container .score-block {
+  margin-top: 1%;
   align-items: center;
 }
 .container .score-block .headline {
@@ -45,9 +46,26 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.container .score-block .score {
+.container .score-block .info-container .score {
   font-size: 1.5rem;
   font-weight: 500;
+}
+.container .score-block .info-container .choice-language {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5%;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.container .score-block .info-container .choice-language:hover {
+  background: rgba(254, 186, 199, 0.7);
+}
+.container .score-block .info-container .choice-language .option {
+  background: rgba(0, 0, 0, 0.7);
 }
 .container .category-birds-block .category-birds {
   width: 15%;
@@ -152,10 +170,10 @@ body {
 .container .next-question {
   width: 30%;
   margin: 0 auto;
-  cursor: pointer;
 }
 .container .active {
   background: linear-gradient(to right, #fda100, #fa4101);
+  cursor: pointer;
 }
 .container .victory-block {
   text-align: center;

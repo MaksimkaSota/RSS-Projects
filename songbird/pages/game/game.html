@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,15 +17,21 @@
       <h1 class="headline" title="На главную">
         <a class="link" href="../../pages/start/start.html">Song Bird</a>
       </h1>
-      <p class="score">Score: 0</p>
+      <div class="info-container">
+        <select class="choice-language" id="language">
+          <option class="option" value="ru">Русский</option>
+          <option class="option" value="en">English</option>
+        </select>
+        <p class="score">Score: 0</p>
+      </div>
     </section>
     <section class="category-birds-block">
-      <button class="category-birds active">Разминка</button>
-      <button class="category-birds">Воробьиные</button>
-      <button class="category-birds">Лесные птицы</button>
-      <button class="category-birds">Певчие птицы</button>
-      <button class="category-birds">Хищные птицы</button>
-      <button class="category-birds">Морские птицы</button>
+      <button class="category-birds active" data-language-id="warmUp">Разминка</button>
+      <button class="category-birds" data-language-id="passerines">Воробьиные</button>
+      <button class="category-birds" data-language-id="forestBirds">Лесные птицы</button>
+      <button class="category-birds" data-language-id="songBirds">Певчие птицы</button>
+      <button class="category-birds" data-language-id="predatorBirds">Хищные птицы</button>
+      <button class="category-birds" data-language-id="seaBirds">Морские птицы</button>
     </section>
     <section class="question-block">
       <img class="question-image"
@@ -68,8 +74,8 @@
       </div>
       <div class="about-bird">
         <div class="preview">
-          <p class="text">Послушайте плеер.</p>
-          <p class="text">Выберете птицу из списка.</p>
+          <p class="text" data-language-id="listenPlayer">Послушайте плеер.</p>
+          <p class="text" data-language-id="chooseBird">Выберете птицу из списка.</p>
         </div>
         <div id="about-bird" style="display: none">
           <div class="content">
@@ -84,19 +90,19 @@
         </div>
       </div>
     </section>
-    <button class="next-question" id="next-btn" disabled>Следующий вопрос</button>
+    <button class="next-question" id="next-btn" data-language-id="nextQuestion" disabled>Следующий вопрос</button>
     <section class="victory-block" style="display: none">
-      <p class="congratulation">Поздравляем!</p>
+      <p class="congratulation" data-language-id="congratulation">Поздравляем!</p>
       <p class="text">
-        Вы прошли викторину и набрали
+        <span data-language-id="congratulationTextFirst">Вы прошли викторину и набрали</span>
         <span id="finish-score"></span>
-        из 30 возможных баллов!
+        <span data-language-id="congratulationTextSecond">из 30 возможных баллов!</span>
       </p>
-      <button class="again-btn" id="new-game-btn">Попробовать еще раз</button>
+      <button class="again-btn" id="new-game-btn" data-language-id="tryAgain">Попробовать еще раз</button>
     </section>
   </main>
   <audio id="true-audio" src="../../assets/audios/true.mp3"></audio>
   <audio id="false-audio" src="../../assets/audios/false.mp3"></audio>
-  <script type="module" src="birds.js"></script>
+  <script type="module" src="scripts/birds.js"></script>
 </body>
 </html>
