@@ -8,6 +8,7 @@ body {
   @extend %container;
   .score-block {
     @extend %general-block;
+    margin-top: 1%;
     align-items: center;
     .headline {
       font-size: 3rem;
@@ -20,9 +21,28 @@ body {
         -webkit-text-fill-color: transparent;
       }
     }
-    .score {
-      font-size: 1.5rem;
-      font-weight: 500;
+    .info-container {
+      .score {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+      .choice-language {
+        display: block;
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 5%;
+        border-radius: 5px;
+        border: none;
+        color: global.$content;
+        background: global.$shadow-background;
+        cursor: pointer;
+        &:hover {
+          background: global.$shadow-hover;
+        }
+        .option {
+          background: global.$shadow-background;
+        }
+      }
     }
   }
   .category-birds-block {
@@ -139,10 +159,10 @@ body {
     @extend %buttons;
     width: 30%;
     margin: 0 auto;
-    cursor: pointer;
   }
   .active {
     background: global.$gradient;
+    cursor: pointer;
   }
   .victory-block {
     text-align: center;

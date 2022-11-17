@@ -19,7 +19,7 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
-.container .header .nav-btn, .container .main .title, .container .footer .author, .container .footer .rsschool-link, .container .footer .year {
+.container .header .nav-btn, .container .main .title, .container .footer .author, .container .footer .rsschool-link, .container .footer .year, .container .footer .choice-language {
   position: relative;
   z-index: 1;
 }
@@ -120,6 +120,25 @@
 .container .footer .year {
   font-size: 1.3rem;
 }
+.container .footer .choice-language {
+  display: block;
+  padding: 5px;
+  width: 90px;
+  margin: 0 0 0 3%;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  background: #aaa5c4;
+  cursor: pointer;
+}
+.container .footer .choice-language:hover {
+  background: rgba(254, 186, 199, 0.7);
+}
+.container .footer .choice-language .option {
+  font-weight: 600;
+  background: #aaa5c4;
+}
 
 .background-shadow {
   width: 100%;
@@ -146,6 +165,9 @@
   }
 }
 @media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
   .container .header {
     flex-direction: column;
     align-items: center;
@@ -187,6 +209,9 @@
   }
   .container .footer .rsschool-link {
     width: 15vw;
+  }
+  .container .footer .choice-language {
+    width: 80px;
   }
   .background-shadow {
     background-image: radial-gradient(circle 8.5vw at 58vw 29vw, transparent 100%, rgba(0, 0, 0, 0.7) 100%);

@@ -102,6 +102,26 @@
       @extend %front-view;
       font-size: 1.3rem;
     }
+    .choice-language {
+      @extend %front-view;
+      display: block;
+      padding: 5px;
+      width: 90px;
+      margin: 0 0 0 3%;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      background: global.$main-background;
+      cursor: pointer;
+      &:hover {
+        background: global.$shadow-hover;
+      }
+      .option {
+        font-weight: 600;
+        background: global.$main-background;
+      }
+    }
   }
 }
 
@@ -141,6 +161,7 @@
 
 @media (max-width: 768px) {
   .container {
+    width: 90%;
     .header {
       flex-direction: column;
       align-items: center;
@@ -195,6 +216,9 @@
     .footer {
       .rsschool-link {
         width: 15vw;
+      }
+      .choice-language {
+        width: 80px;
       }
     }
   }
