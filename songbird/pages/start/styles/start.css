@@ -37,6 +37,7 @@
   background: #aaa5c4;
   width: 30%;
   padding: 0;
+  transition: all 0.3s linear;
 }
 .container .header .nav-btn .link {
   display: block;
@@ -91,6 +92,7 @@
   display: block;
   font-size: 1.3rem;
   color: #aaa5c4;
+  transition: all 0.3s linear;
 }
 .container .footer .author:hover {
   color: rgba(254, 186, 199, 0.7);
@@ -107,6 +109,7 @@
   padding: 5px;
   border-radius: 5px;
   background: #aaa5c4;
+  transition: all 0.3s linear;
 }
 .container .footer .rsschool-link:hover {
   background: rgba(254, 186, 199, 0.7);
@@ -131,9 +134,13 @@
   border: none;
   background: #aaa5c4;
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 .container .footer .choice-language:hover {
   background: rgba(254, 186, 199, 0.7);
+}
+.container .footer .choice-language:active {
+  background: linear-gradient(to right, #fda100, #fa4101);
 }
 .container .footer .choice-language .option {
   font-weight: 600;

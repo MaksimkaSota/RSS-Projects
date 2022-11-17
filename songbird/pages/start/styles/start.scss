@@ -14,6 +14,7 @@
       background: global.$main-background;
       width: 30%;
       padding: 0;
+      transition: all .3s linear;
       .link {
         display: block;
         padding: 10px;
@@ -71,6 +72,7 @@
       display: block;
       font-size: 1.3rem;
       color: global.$main-background;
+      transition: all .3s linear;
       &:hover {
         color: global.$shadow-hover;
       }
@@ -88,6 +90,7 @@
       padding: 5px;
       border-radius: 5px;
       background: global.$main-background;
+      transition: all .3s linear;
       &:hover {
         background: global.$shadow-hover;
       }
@@ -114,8 +117,12 @@
       border: none;
       background: global.$main-background;
       cursor: pointer;
+      transition: all .3s linear;
       &:hover {
         background: global.$shadow-hover;
+      }
+      &:active {
+        background: global.$gradient;
       }
       .option {
         font-weight: 600;

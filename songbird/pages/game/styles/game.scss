@@ -8,11 +8,12 @@ body {
   @extend %container;
   .score-block {
     @extend %general-block;
-    margin-top: 1%;
+    padding: 1% 0 0 0;
     align-items: center;
     .headline {
       font-size: 3rem;
       .link:hover {
+        transition: all .3s linear;
         color: global.$shadow-hover;
       }
       .link:active {
@@ -36,8 +37,12 @@ body {
         color: global.$content;
         background: global.$shadow-background;
         cursor: pointer;
+        transition: all .3s linear;
         &:hover {
           background: global.$shadow-hover;
+        }
+        &:active {
+          background: global.$gradient;
         }
         .option {
           background: global.$shadow-background;
@@ -89,6 +94,7 @@ body {
           padding: 15px;
           font-weight: 300;
           cursor: pointer;
+          transition: all .3s linear;
           &:not(:last-child) {
             border-bottom: 1px solid global.$outline;
           }

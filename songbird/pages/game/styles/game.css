@@ -32,13 +32,14 @@ body {
 }
 
 .container .score-block {
-  margin-top: 1%;
+  padding: 1% 0 0 0;
   align-items: center;
 }
 .container .score-block .headline {
   font-size: 3rem;
 }
 .container .score-block .headline .link:hover {
+  transition: all 0.3s linear;
   color: rgba(254, 186, 199, 0.7);
 }
 .container .score-block .headline .link:active {
@@ -60,9 +61,13 @@ body {
   color: #ffffff;
   background: rgba(0, 0, 0, 0.7);
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 .container .score-block .info-container .choice-language:hover {
   background: rgba(254, 186, 199, 0.7);
+}
+.container .score-block .info-container .choice-language:active {
+  background: linear-gradient(to right, #fda100, #fa4101);
 }
 .container .score-block .info-container .choice-language .option {
   background: rgba(0, 0, 0, 0.7);
@@ -106,6 +111,7 @@ body {
   padding: 15px;
   font-weight: 300;
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 .container .main-content-block .block-one .choice-bird .bird:not(:last-child) {
   border-bottom: 1px solid gray;

@@ -4,6 +4,9 @@ const languageElems = document.querySelectorAll('[data-language-id]');
 const selectLanguage = document.querySelector('#language');
 const startLink = document.querySelector('.start-link');
 
+changeLanguage(startDataRu);
+startLink.title = 'Вы уже на главной';
+
 selectLanguage.addEventListener('change', function() {
   if (selectLanguage.value === 'ru') {
     localStorage.setItem('birdsDataLang', 'ru');
