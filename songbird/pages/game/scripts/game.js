@@ -47,42 +47,44 @@ let isWin = false;
 let firstClick = true;
 
 let birdsDataLang = birdsDataRu;
+changeLanguage(gameDataRu);
+mainLink.title = 'На главную';
 
 selectLanguage.addEventListener('change', function() {
   if (selectLanguage.value === 'ru') {
     localStorage.setItem('birdsDataLang', 'ru');
     birdsDataLang = birdsDataRu;
+    changeLanguage(gameDataRu);
+    mainLink.title = 'На главную';
     showAnswerOptions();
     showAnswer();
     nextBtn.addEventListener('click', showNext);
     newGameBtn.addEventListener('click', startNewGame);
-    changeLanguage(gameDataRu);
-    mainLink.title = 'На главную';
   }
   if (selectLanguage.value === 'en') {
     localStorage.setItem('birdsDataLang', 'en');
     birdsDataLang = birdsDataEn;
+    changeLanguage(gameDataEn);
+    mainLink.title = 'To home page';
     showAnswerOptions();
     showAnswer();
     nextBtn.addEventListener('click', showNext);
     newGameBtn.addEventListener('click', startNewGame);
-    changeLanguage(gameDataEn);
-    mainLink.title = 'To home page';
   }
 })
 
 const gameDataLangStorage = localStorage.getItem("birdsDataLang");
 if (gameDataLangStorage === 'ru') {
   birdsDataLang = birdsDataRu;
-  selectLanguage.selectedIndex = 0;
   changeLanguage(gameDataRu);
   mainLink.title = 'На главную';
+  selectLanguage.selectedIndex = 0;
 }
 if (gameDataLangStorage === 'en') {
   birdsDataLang = birdsDataEn;
-  selectLanguage.selectedIndex = 1;
   changeLanguage(gameDataEn);
   mainLink.title = 'To home page';
+  selectLanguage.selectedIndex = 1;
 }
 
 const questionsArray = [];
