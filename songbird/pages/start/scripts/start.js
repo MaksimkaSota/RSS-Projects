@@ -1,5 +1,7 @@
 import {startDataRu, startDataEn} from './language-data.js'
 
+console.log('Score: 250 / 270');
+
 const languageElems = document.querySelectorAll('[data-language-id]');
 const selectLanguage = document.querySelector('#language');
 const startLink = document.querySelector('.start-link');

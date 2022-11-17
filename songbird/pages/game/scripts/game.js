@@ -3,6 +3,8 @@ import birdsDataEn from './bird-data-en.js';
 import {gameDataRu, gameDataEn} from './language-data.js'
 import getAudio from './audio.js';
 
+console.log('Score: 250 / 270');
+
 const mainLink = document.querySelectorAll('.main-link');
 const languageElems = document.querySelectorAll('[data-language-id]');
 const selectLanguage = document.querySelector('#language');
@@ -130,13 +132,6 @@ function showAnswer() {
   for (let i = 0; i < birdsNode.length; i++) {
     birdsNode[i].addEventListener('click', function() {
       indexHelpLang = i;
-      const mainAudioQuestion = document.querySelector('.audio-container-one #main-audio');
-      const playBtnQuestion = document.querySelector(".audio-container-one .toggle-play");
-
-      playBtnQuestion.classList.remove("icon-pause");
-      playBtnQuestion.classList.add("icon-play");
-      mainAudioQuestion.pause();
-
       answerImage.src = birdsDataLang[mainCounter][i].image;
       answerTitle.textContent = birdsDataLang[mainCounter][i].name;
       answerSpecies.textContent = birdsDataLang[mainCounter][i].species;
@@ -146,6 +141,12 @@ function showAnswer() {
       if (birdsDataLang[mainCounter][i].id === questionsArray[mainCounter][0].id) {
         isWin = true;
         if (firstClick) {
+          const mainAudioQuestion = document.querySelector('.audio-container-one #main-audio');
+          const playBtnQuestion = document.querySelector(".audio-container-one .toggle-play");
+          playBtnQuestion.classList.remove("icon-pause");
+          playBtnQuestion.classList.add("icon-play");
+          mainAudioQuestion.pause();
+
           scoreCounter += helpScoreCounter;
           aboutBird.style = 'display: block';
           previewAboutBird.style = 'display: none';
