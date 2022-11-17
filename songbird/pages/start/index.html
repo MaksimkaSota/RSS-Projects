@@ -13,10 +13,10 @@
   <div class="container">
     <header class="header">
       <button class="nav-btn active">
-        <a class="link start-link" href="#" title="Вы уже на главной">Главная</a>
+        <a class="link start-link" data-language-id="home" href="#"></a>
       </button>
       <button class="nav-btn">
-        <a class="link game-link" href="../../pages/game/game.html">Играть</a>
+        <a class="link game-link" data-language-id="play" href="../game/index.html"></a>
       </button>
     </header>
     <main class="main">
@@ -24,8 +24,9 @@
       <video class="background-video" src="../../assets/videos/violin.mp4" autoplay muted loop preload="auto"></video>
       <p class="title">Bird</p>
       <p class="about">
-        <span class="upper">Приложение-викторина</span><br>
-        для распозднования птиц по их голосам
+        <span class="upper" data-language-id="mainTextFirst"></span>
+        <br>
+        <span data-language-id="mainTextSecond"></span>
       </p>
     </main>
     <footer class="footer">
@@ -34,8 +35,13 @@
         <img class="logo-rsschool" src="../../assets/images/rs_school_js.svg" alt="logo-rsschool">
       </a>
       <p class="year">2022</p>
+      <select class="choice-language" id="language">
+        <option class="option" value="ru">Русский</option>
+        <option class="option" value="en">English</option>
+      </select>
     </footer>
   </div>
   <div class="background-shadow"></div>
+  <script type="module" src="scripts/start.js"></script>
 </body>
 </html>

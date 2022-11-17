@@ -1,4 +1,4 @@
-const categoryBirdsDataRu = {
+const gameDataRu = {
   warmUp: 'Разминка',
   passerines: 'Воробьиные',
   forestBirds: 'Лесные птицы',
@@ -14,7 +14,7 @@ const categoryBirdsDataRu = {
   tryAgain: 'Попробовать еще раз'
 }
 
-const categoryBirdsDataEn = {
+const gameDataEn = {
   warmUp: 'Warm-up',
   passerines: 'Passerines',
   forestBirds: 'Forest birds',
@@ -22,7 +22,7 @@ const categoryBirdsDataEn = {
   predatorBirds: 'Predator birds',
   seaBirds: 'Sea birds',
   nextQuestion: 'Next question',
-  listenPlayer: 'Listen to the player',
+  listenPlayer: 'Listen to the player.',
   chooseBird: 'Choose a bird from the list.',
   congratulation: 'Congratulation!',
   congratulationTextFirst: 'You passed the quiz and scored',
@@ -30,4 +30,4 @@ const categoryBirdsDataEn = {
   tryAgain: 'Try again'
 }
 
-export {categoryBirdsDataRu, categoryBirdsDataEn};
+export {gameDataRu, gameDataEn};

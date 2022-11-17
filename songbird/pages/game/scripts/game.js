@@ -1,9 +1,11 @@
 import birdsDataRu from './birds-data-ru.js';
 import birdsDataEn from './bird-data-en.js';
-import {categoryBirdsDataRu, categoryBirdsDataEn} from './language-data.js'
+import {gameDataRu, gameDataEn} from './language-data.js'
 import getAudio from './audio.js';
 
-let languageElems = document.querySelectorAll('[data-language-id]');
+const mainLink = document.querySelectorAll('.main-link');
+const languageElems = document.querySelectorAll('[data-language-id]');
+const selectLanguage = document.querySelector('#language');
 
 const score = document.querySelector('.score');
 const finishScore = document.querySelector('#finish-score');
@@ -46,38 +48,41 @@ let firstClick = true;
 
 let birdsDataLang = birdsDataRu;
 
-const select = document.querySelector('select');
-select.addEventListener('change', function() {
-  if (select.value === 'ru') {
+selectLanguage.addEventListener('change', function() {
+  if (selectLanguage.value === 'ru') {
     localStorage.setItem('birdsDataLang', 'ru');
     birdsDataLang = birdsDataRu;
     showAnswerOptions();
     showAnswer();
     nextBtn.addEventListener('click', showNext);
     newGameBtn.addEventListener('click', startNewGame);
-    changeLanguage(categoryBirdsDataRu);
+    changeLanguage(gameDataRu);
+    mainLink.title = 'На главную';
   }
-  if (select.value === 'en') {
+  if (selectLanguage.value === 'en') {
     localStorage.setItem('birdsDataLang', 'en');
     birdsDataLang = birdsDataEn;
     showAnswerOptions();
     showAnswer();
     nextBtn.addEventListener('click', showNext);
     newGameBtn.addEventListener('click', startNewGame);
-    changeLanguage(categoryBirdsDataEn);
+    changeLanguage(gameDataEn);
+    mainLink.title = 'To home page';
   }
 })
 
-const birdsDataLangStorage = localStorage.getItem("birdsDataLang");
-if (birdsDataLangStorage === 'ru') {
+const gameDataLangStorage = localStorage.getItem("birdsDataLang");
+if (gameDataLangStorage === 'ru') {
   birdsDataLang = birdsDataRu;
-  select.selectedIndex = 0;
-  changeLanguage(categoryBirdsDataRu);
+  selectLanguage.selectedIndex = 0;
+  changeLanguage(gameDataRu);
+  mainLink.title = 'На главную';
 }
-if (birdsDataLangStorage === 'en') {
+if (gameDataLangStorage === 'en') {
   birdsDataLang = birdsDataEn;
-  select.selectedIndex = 1;
-  changeLanguage(categoryBirdsDataEn);
+  selectLanguage.selectedIndex = 1;
+  changeLanguage(gameDataEn);
+  mainLink.title = 'To home page';
 }
 
 const questionsArray = [];
@@ -229,13 +234,8 @@ function zeroing() {
 nextBtn.addEventListener('click', showNext);
 newGameBtn.addEventListener('click', startNewGame);
 
-function changeLanguage(categoryBirdsData) {
+function changeLanguage(gameData) {
   for (let elem of languageElems) {
-    // for (let key in categoryBirdsData) {
-    //   if (elem.dataset.languageId === key) {
-    //     elem.textContent = categoryBirdsData[key];
-    //   }
-    // }
-    elem.textContent = categoryBirdsData[elem.dataset.languageId];
+    elem.textContent = gameData[elem.dataset.languageId];
   }
 }
