@@ -1,4 +1,7 @@
-import {startDataRu, startDataEn} from './language-data.js'
+import '../../../styles/general.scss';
+import '../start.scss';
+
+import { startDataRu, startDataEn } from './language-data.js'
 
 console.log('Score: 250 / 270');
 

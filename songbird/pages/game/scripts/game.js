@@ -1,3 +1,7 @@
+import '../../../styles/icons-font.css';
+import '../../../styles/general.scss';
+import '../game.scss';
+
 import birdsDataRu from './birds-data-ru.js';
 import birdsDataEn from './bird-data-en.js';
 import {gameDataRu, gameDataEn} from './language-data.js'

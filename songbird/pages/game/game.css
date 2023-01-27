@@ -3,21 +3,21 @@
   margin: 0 auto;
 }
 
-.container .score-block, .container .category-birds-block, .container .question-block, .container .main-content-block {
+.container .main-content-block, .container .question-block, .container .category-birds-block, .container .score-block {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1%;
 }
 
-.audio-player .controls, .audio-player .controls .icon-pause::before,
+.audio-player .controls .icon-pause::before,
 .audio-player .controls .icon-play::before,
 .audio-player .controls .icon-sound-on::before,
-.audio-player .controls .icon-sound-off::before {
+.audio-player .controls .icon-sound-off::before, .audio-player .controls {
   display: flex;
   align-items: center;
 }
 
-.container .category-birds-block .category-birds, .container .next-question, .container .victory-block .again-btn {
+.container .victory-block .again-btn, .container .next-question, .container .category-birds-block .category-birds {
   display: block;
   font-size: 0.9rem;
   border-radius: 5px;
@@ -28,7 +28,7 @@
 }
 
 body {
-  background: url("../../../assets/images/main.png") no-repeat bottom/contain;
+  background: url("../../assets/images/main.png") no-repeat bottom/contain;
 }
 
 .container .score-block {

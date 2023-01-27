@@ -19,7 +19,7 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
-.container .header .nav-btn, .container .main .title, .container .footer .author, .container .footer .rsschool-link, .container .footer .year, .container .footer .choice-language {
+.container .footer .choice-language, .container .footer .year, .container .footer .rsschool-link, .container .footer .author, .container .main .title, .container .header .nav-btn {
   position: relative;
   z-index: 1;
 }

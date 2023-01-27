@@ -1,4 +1,4 @@
-@use "../../../styles/global" as global;
+@import "../../styles/global";
 
 .container {
   @extend %container;
@@ -11,7 +11,7 @@
     .nav-btn {
       @extend %buttons;
       @extend %front-view;
-      background: global.$main-background;
+      background: $main-background;
       width: 30%;
       padding: 0;
       transition: all .3s linear;
@@ -23,13 +23,13 @@
         cursor: default;
       }
       &:first-child {
-        background: global.$gradient;
+        background: $gradient;
       }
       &:last-child:hover {
-        background: global.$shadow-hover;
+        background: $shadow-hover;
       }
       &:last-child:active {
-        background: global.$gradient;
+        background: $gradient;
       }
     }
   }
@@ -40,7 +40,7 @@
     .background-video {
       width: 60%;
       display: block;
-      background: global.$main-background;
+      background: $main-background;
     }
     .title {
       @extend %front-view;
@@ -71,13 +71,13 @@
       @extend %front-view;
       display: block;
       font-size: 1.3rem;
-      color: global.$main-background;
+      color: $main-background;
       transition: all .3s linear;
       &:hover {
-        color: global.$shadow-hover;
+        color: $shadow-hover;
       }
       &:active {
-        background: global.$gradient;
+        background: $gradient;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -89,13 +89,13 @@
       margin: 0 3%;
       padding: 5px;
       border-radius: 5px;
-      background: global.$main-background;
+      background: $main-background;
       transition: all .3s linear;
       &:hover {
-        background: global.$shadow-hover;
+        background: $shadow-hover;
       }
       &:active {
-        background: global.$gradient;
+        background: $gradient;
       }
       .logo-rsschool {
         display: block;
@@ -115,18 +115,18 @@
       font-size: 0.9rem;
       font-weight: 600;
       border: none;
-      background: global.$main-background;
+      background: $main-background;
       cursor: pointer;
       transition: all .3s linear;
       &:hover {
-        background: global.$shadow-hover;
+        background: $shadow-hover;
       }
       &:active {
-        background: global.$gradient;
+        background: $gradient;
       }
       .option {
         font-weight: 600;
-        background: global.$main-background;
+        background: $main-background;
       }
     }
   }
@@ -137,7 +137,7 @@
   height: 100%;
   position: absolute;
   top: 0;
-  background-image: radial-gradient(circle 7vw at 56vw 12.5vw, transparent 100%, global.$shadow-background 100%);
+  background-image: radial-gradient(circle 7vw at 56vw 12.5vw, transparent 100%, $shadow-background 100%);
 }
 
 @media (max-width: 1280px) {
@@ -162,7 +162,7 @@
     }
   }
   .background-shadow {
-    background-image: radial-gradient(circle 7.5vw at 58vw 14vw, transparent 100%, global.$shadow-background 100%);
+    background-image: radial-gradient(circle 7.5vw at 58vw 14vw, transparent 100%, $shadow-background 100%);
   }
 }
 
@@ -195,7 +195,7 @@
     }
   }
   .background-shadow {
-    background-image: radial-gradient(circle 8vw at 58vw 24vw, transparent 100%, global.$shadow-background 100%);
+    background-image: radial-gradient(circle 8vw at 58vw 24vw, transparent 100%, $shadow-background 100%);
   }
 }
 
@@ -208,7 +208,7 @@
     }
   }
   .background-shadow {
-    background-image: radial-gradient(circle 8vw at 58vw 26vw, transparent 100%, global.$shadow-background 100%);
+    background-image: radial-gradient(circle 8vw at 58vw 26vw, transparent 100%, $shadow-background 100%);
   }
 }
 
@@ -230,7 +230,7 @@
     }
   }
   .background-shadow {
-    background-image: radial-gradient(circle 8.5vw at 58vw 29vw, transparent 100%, global.$shadow-background 100%);
+    background-image: radial-gradient(circle 8.5vw at 58vw 29vw, transparent 100%, $shadow-background 100%);
   }
 }
 
@@ -249,13 +249,13 @@
     }
   }
   .background-shadow {
-    background-image: radial-gradient(circle 8.5vw at 58vw 27vw, transparent 100%, global.$shadow-background 100%);
+    background-image: radial-gradient(circle 8.5vw at 58vw 27vw, transparent 100%, $shadow-background 100%);
   }
 }
 
 @media (max-width: 420px) {
   .background-shadow {
-    background-image: radial-gradient(circle 9vw at 58vw 31vw, transparent 100%, global.$shadow-background 100%);
+    background-image: radial-gradient(circle 9vw at 58vw 31vw, transparent 100%, $shadow-background 100%);
   }
 }
 
@@ -268,6 +268,6 @@
     }
   }
   .background-shadow {
-    background-image: radial-gradient(circle 9vw at 58vw 33vw, transparent 100%, global.$shadow-background 100%);
+    background-image: radial-gradient(circle 9vw at 58vw 33vw, transparent 100%, $shadow-background 100%);
   }
 }
