@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Bird</title>
+  <link rel="icon" sizes="32x32" href="../../assets/images/songbird.ico"/>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+</head>
+<body>
+  <main class="container">
+    <section class="score-block">
+      <h1 class="headline" id="main-link">
+        <a class="link" href="../start/start.html">Song Bird</a>
+      </h1>
+      <div class="info-container">
+        <select class="choice-language" id="language">
+          <option class="option" value="ru">Русский</option>
+          <option class="option" value="en">English</option>
+        </select>
+        <p class="score">Score: 0</p>
+      </div>
+    </section>
+    <section class="category-birds-block">
+      <button class="category-birds active" data-language-id="warmUp"></button>
+      <button class="category-birds" data-language-id="passerines"></button>
+      <button class="category-birds" data-language-id="forestBirds"></button>
+      <button class="category-birds" data-language-id="songBirds"></button>
+      <button class="category-birds" data-language-id="predatorBirds"></button>
+      <button class="category-birds" data-language-id="seaBirds"></button>
+    </section>
+    <section class="question-block">
+      <img class="question-image"
+           id="question-image"
+           src="../../assets/images/question.png"
+           alt="question image">
+      <div class="question-content">
+          <p class="title" id="question-title">*******</p>
+          <div class="audio-container-one"></div>
+      </div>
+    </section>
+    <section class="main-content-block">
+      <div class="block-one">
+        <ul class="choice-bird">
+          <li class="bird">
+            <span class="bird-btn"></span>
+            <span class="bird-txt"></span>
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            <span class="bird-txt"></span>
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            <span class="bird-txt"></span>
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            <span class="bird-txt"></span>
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            <span class="bird-txt"></span>
+          </li>
+          <li class="bird">
+            <span class="bird-btn"></span>
+            <span class="bird-txt"></span>
+          </li>
+        </ul>
+      </div>
+      <div class="about-bird">
+        <div class="preview">
+          <p class="text" data-language-id="listenPlayer"></p>
+          <p class="text" data-language-id="chooseBird"></p>
+        </div>
+        <div id="about-bird" style="display: none">
+          <div class="content">
+            <img class="content-image" id="answer-image" alt="bird">
+            <div class="description">
+              <p class="title" id="answer-title"></p>
+              <p class="species" id="answer-species"></p>
+              <div class="audio-container-two"></div>
+            </div>
+          </div>
+          <p class="text" id="answer-text"></p>
+        </div>
+      </div>
+    </section>
+    <button class="next-question" id="next-btn" data-language-id="nextQuestion" disabled></button>
+    <section class="victory-block" style="display: none">
+      <p class="congratulation" data-language-id="congratulation"></p>
+      <p class="text">
+        <span data-language-id="congratulationTextFirst"></span>
+        <span id="finish-score"></span>
+        <span data-language-id="congratulationTextSecond"></span>
+      </p>
+      <button class="again-btn" id="new-game-btn" data-language-id="tryAgain"></button>
+    </section>
+  </main>
+  <audio id="true-audio" src="../../assets/audios/true.mp3"></audio>
+  <audio id="false-audio" src="../../assets/audios/false.mp3"></audio>
+</body>
+</html>
